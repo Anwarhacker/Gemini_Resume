@@ -14,7 +14,7 @@ const ExperienceForm: React.FC<Props> = ({ data, update }) => {
     const change = (id: string, field: string, val: any) => update({ experience: data.experience.map(e => e.id === id ? { ...e, [field]: val } : e) });
   
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800">
         {data.experience.map((exp, idx) => (
           <div key={exp.id} className="p-5 border border-slate-200 rounded-xl bg-slate-50 relative group">
             <button onClick={() => remove(exp.id)} className="absolute top-4 right-4 text-slate-400 hover:text-red-500"><MaterialIcon name="delete" /></button>

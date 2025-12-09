@@ -23,6 +23,7 @@ const OnyxTemplate = React.lazy(() => import('../templates/OnyxTemplate').then(m
 const SerifTemplate = React.lazy(() => import('../templates/SerifTemplate').then(m => ({ default: m.SerifTemplate })));
 
 const ResumePreview = ({ data, scale = 1 }: { data: ResumeData, scale?: number }) => {
+    console.log('🖼️ ResumePreview rendering with templateId:', data.templateId);
     
     // Define font family strings based on selection
     const fontFamilies = {
@@ -53,7 +54,9 @@ const ResumePreview = ({ data, scale = 1 }: { data: ResumeData, scale?: number }
             case 'onyx': return <OnyxTemplate data={data} />;
             case 'serif': return <SerifTemplate data={data} />;
             case 'modern':
-            default: return <ModernTemplate data={data} />;
+            default: 
+                console.log('Rendering template:', data.templateId || 'modern');
+                return <ModernTemplate data={data} />;
         }
     };
 

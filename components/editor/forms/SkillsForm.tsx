@@ -13,7 +13,7 @@ const SkillsForm: React.FC<Props> = ({ data, update }) => {
   const remove = (id: string) => update({ skills: data.skills.filter(s => s.id !== id) });
   
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800">
        <div className="flex gap-2">
          <input 
             className="form-input flex-1 rounded-lg border-slate-300" 

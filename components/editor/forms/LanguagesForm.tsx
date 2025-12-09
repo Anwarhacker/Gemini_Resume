@@ -13,7 +13,7 @@ const LanguagesForm: React.FC<Props> = ({ data, update }) => {
     const change = (id: string, field: string, val: string) => update({ languages: data.languages.map(l => l.id === id ? { ...l, [field]: val } : l) });
 
     return (
-        <div className="space-y-4">
+        <div className="space-y-4 p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800">
             {data.languages.map((lang) => (
                 <div key={lang.id} className="flex gap-4 items-center">
                     <input placeholder="Language" className="form-input flex-1 rounded-lg border-slate-300" value={lang.name} onChange={e => change(lang.id, 'name', e.target.value)} />

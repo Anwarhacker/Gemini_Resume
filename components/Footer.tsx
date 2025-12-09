@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -16,17 +17,17 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Templates</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Examples</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
+              <li><Link to="/templates" className="hover:text-white transition-colors">Templates</Link></li>
+              <li><Link to="/editor" className="hover:text-white transition-colors">Create Resume</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Features</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+              <li><Link to="/help" className="hover:text-white transition-colors">Help Center</Link></li>
+              <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>

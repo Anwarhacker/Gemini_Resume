@@ -15,7 +15,7 @@ const PersonalForm: React.FC<Props> = ({ data, update }) => {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800">
          <div className="relative group cursor-pointer">
             <div className="w-24 h-24 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden border-2 border-dashed border-slate-300 hover:border-primary transition-colors">
                {data.personalInfo.photoUrl ? (
@@ -34,7 +34,7 @@ const PersonalForm: React.FC<Props> = ({ data, update }) => {
          </div>
       </div>
   
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800">
         <FormInput 
           label="Full Name" 
           placeholder="e.g. John Doe"

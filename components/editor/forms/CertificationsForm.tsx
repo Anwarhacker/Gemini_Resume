@@ -13,7 +13,7 @@ const CertificationsForm: React.FC<Props> = ({ data, update }) => {
     const change = (id: string, field: string, val: string) => update({ certifications: data.certifications.map(c => c.id === id ? { ...c, [field]: val } : c) });
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-6 p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800">
             {data.certifications.map((cert, idx) => (
                 <div key={cert.id} className="p-5 border border-slate-200 rounded-xl bg-slate-50 relative group">
                     <button onClick={() => remove(cert.id)} className="absolute top-4 right-4 text-slate-400 hover:text-red-500"><MaterialIcon name="delete" /></button>

@@ -12,10 +12,19 @@ const templates = [
     categories: ['Professional', 'Experienced', 'Fresher']
   },
   {
+    id: 'simple',
+    name: 'Simple Professional',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXZHriPv_WFCa0lnLDdJ0BYQImtMkpUo52RupM-2jpp44nLT21y5FFkXofOx2oMQMsBCGfQwu06vRp-lXxoJMZSJt3XxlmW5bzjPIiTPV7qDAIBz16tzc_0-S4WD23sofDukGEKqmSBkeE84vIRmkUkrzcQocMLZQaRLqaDMWuAELCOEyWXZMx9GGlpGz7D7cPnZIXTzgTdhVxVhQf0wx46vRUypRE65_ZA83B_B19GwSnY2us36dG88eSKk0IcwSLegdKvFkR42A',
+    badge: null,
+    premium: false,
+    price: null,
+    categories: ['Professional', 'Fresher']
+  },
+  {
     id: 'swiss',
     name: 'Swiss Grid',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCWSf5KqJXpnUe2P5etSyxSyj0HDdEGuC0j_DBXMvLMZj3ySdHaxZRIBwtUSNqt8EO7ewvTQtkOpGpiyOEkEdKjX8szkQI-fQrDQ7sEVFfcuUfvqgDdvfljC-bN2J1o0b1eXqJ1nd5VdWXlrjET9cNNDTgh4losFWKkRYeiMS_QIP4I2WzGi4xGifPS42PPGqQ250XLWhqNEepscckkDWyznVjU9fsHe4t652Y2V8q40kk8GS614GFeGGV-jMegMLMSau7_cni_7yM', // Reusing minimalist for placeholder
-    badge: 'New',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCWSf5KqJXpnUe2P5etSyxSyj0HDdEGuC0j_DBXMvLMZj3ySdHaxZRIBwtUSNqt8EO7ewvTQtkOpGpiyOEkEdKjX8szkQI-fQrDQ7sEVFfcuUfvqgDdvfljC-bN2J1o0b1eXqJ1nd5VdWXlrjET9cNNDTgh4losFWKkRYeiMS_QIP4I2WzGi4xGifPS42PPGqQ250XLWhqNEepscckkDWyznVjU9fsHe4t652Y2V8q40kk8GS614GFeGGV-jMegMLMSau7_cni_7yM',
+    badge: null,
     premium: false,
     price: null,
     categories: ['Minimalist', 'Professional']
@@ -23,8 +32,8 @@ const templates = [
   {
     id: 'coral',
     name: 'Coral Accent',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAjQ6f7ehy_HTPUcRwoVSGAOLMtP8i4CnR6DPQPRipuZBEdFhLonbCUSI228o54UIokFcFQEBIrGGhJZdnF7DZZ-aKk443o_T5FoNkfpi8jqCA3n_AnvupHNxNfO-bgh0qYaN3zaAJmkPn25IyjMVuMj9aJrH93pTyqV3Q-0jO2Yz673Kg_r6Iu2zPB4_460xm_PuwQUAU1xKL7vxp3AzrIHeaedvgeeegP-HjlY48HMdFCzYQlnE8EtoKmFu4d5SkSN6zJBs3greQ', // Reusing tech for placeholder
-    badge: 'New',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAjQ6f7ehy_HTPUcRwoVSGAOLMtP8i4CnR6DPQPRipuZBEdFhLonbCUSI228o54UIokFcFQEBIrGGhJZdnF7DZZ-aKk443o_T5FoNkfpi8jqCA3n_AnvupHNxNfO-bgh0qYaN3zaAJmkPn25IyjMVuMj9aJrH93pTyqV3Q-0jO2Yz673Kg_r6Iu2zPB4_460xm_PuwQUAU1xKL7vxp3AzrIHeaedvgeeegP-HjlY48HMdFCzYQlnE8EtoKmFu4d5SkSN6zJBs3greQ',
+    badge: null,
     premium: false,
     price: null,
     categories: ['Professional', 'Fresher']
@@ -32,8 +41,8 @@ const templates = [
   {
     id: 'urban',
     name: 'Urban Sidebar',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuATeZ2eLTwRUlr9HQlkEvlbOYjx1mRapm3xSIRHppautLRN4MQXf7q4vDON-JUW0JN8Ba450v2BxUnY76RxOLiy_fX2apT0IeaU5kfUKEtiapaUkpZDECHbvW2XUiRVcr0YcNfppK40XKWT2PMuL0oOjcjL_kxJ_ffipf8HBuNKuc2CZt2wHn5ZeeO2QLQZ_hoomw_CInQ67DLySUqXb1E65zhQCN-83iN0tAk3oOVzChedoTrZ-gimFkZ8WxzNnGocuPNi31lBx5c', // Reusing creative for placeholder
-    badge: 'New',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuATeZ2eLTwRUlr9HQlkEvlbOYjx1mRapm3xSIRHppautLRN4MQXf7q4vDON-JUW0JN8Ba450v2BxUnY76RxOLiy_fX2apT0IeaU5kfUKEtiapaUkpZDECHbvW2XUiRVcr0YcNfppK40XKWT2PMuL0oOjcjL_kxJ_ffipf8HBuNKuc2CZt2wHn5ZeeO2QLQZ_hoomw_CInQ67DLySUqXb1E65zhQCN-83iN0tAk3oOVzChedoTrZ-gimFkZ8WxzNnGocuPNi31lBx5c',
+    badge: null,
     premium: false,
     price: null,
     categories: ['Professional', 'Experienced']
@@ -43,8 +52,8 @@ const templates = [
     name: 'Creative Infographic',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuATeZ2eLTwRUlr9HQlkEvlbOYjx1mRapm3xSIRHppautLRN4MQXf7q4vDON-JUW0JN8Ba450v2BxUnY76RxOLiy_fX2apT0IeaU5kfUKEtiapaUkpZDECHbvW2XUiRVcr0YcNfppK40XKWT2PMuL0oOjcjL_kxJ_ffipf8HBuNKuc2CZt2wHn5ZeeO2QLQZ_hoomw_CInQ67DLySUqXb1E65zhQCN-83iN0tAk3oOVzChedoTrZ-gimFkZ8WxzNnGocuPNi31lBx5c',
     badge: null,
-    premium: true,
-    price: '$9.99',
+    premium: false,
+    price: null,
     categories: ['Creative']
   },
   {
@@ -59,8 +68,8 @@ const templates = [
   {
     id: 'onyx',
     name: 'Onyx Dark',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPu0GcLzMCDWY2P5smAXfqsvd3s13GLbYHo2QimIs7s_wm_dnsa8B29Jt3wKWHe0IOdY06Tss63Rv2hplKgbP6b4SWmYLC-7gZQSJ6SIr3AkB3em1bL1PddV30hgXmudIzZVksFGeEaMNbZTrNG5FR0u4eHm8EQsc27iQ6aJp6Cu38N9wV3VzY7PuTTIS_egTZhKWLSk_GQ7ruTpWH_PzrhkeGO4uMfTbdjmnzsPfgkBQlcHSYkn5d4C2UZmfuXKI_qJHTlpvrXPE', // Reusing executive for placeholder
-    badge: 'New',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPu0GcLzMCDWY2P5smAXfqsvd3s13GLbYHo2QimIs7s_wm_dnsa8B29Jt3wKWHe0IOdY06Tss63Rv2hplKgbP6b4SWmYLC-7gZQSJ6SIr3AkB3em1bL1PddV30hgXmudIzZVksFGeEaMNbZTrNG5FR0u4eHm8EQsc27iQ6aJp6Cu38N9wV3VzY7PuTTIS_egTZhKWLSk_GQ7ruTpWH_PzrhkeGO4uMfTbdjmnzsPfgkBQlcHSYkn5d4C2UZmfuXKI_qJHTlpvrXPE',
+    badge: null,
     premium: false,
     price: null,
     categories: ['Professional', 'Experienced']
@@ -68,8 +77,8 @@ const templates = [
   {
     id: 'serif',
     name: 'Classic Serif',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBmtw3hYsOrUassgMvh4kLTVyGBGffh6LyOJB3wO-EwxGQTDJRpIVO3oh7zncIdRxc_8bg1suJXFgWTM9AgUGf0dxhkXD9K010-hYNgN6AWkrEv14oj4q75xLovXoz60fEW0ApMB-ZkP6AMzQAWnXlXIyUyG-NpzWyngQaWfSx9LFBx15YMGfSHO5CJGE9yEGfvGbCyjYrnHTraQ7MTy3R9-FZEIU4l3poKjqQYiCxTXJvMWTdOOvwr-KKElltdEaLfShxJonsbKlE', // Reusing classic for placeholder
-    badge: 'New',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBmtw3hYsOrUassgMvh4kLTVyGBGffh6LyOJB3wO-EwxGQTDJRpIVO3oh7zncIdRxc_8bg1suJXFgWTM9AgUGf0dxhkXD9K010-hYNgN6AWkrEv14oj4q75xLovXoz60fEW0ApMB-ZkP6AMzQAWnXlXIyUyG-NpzWyngQaWfSx9LFBx15YMGfSHO5CJGE9yEGfvGbCyjYrnHTraQ7MTy3R9-FZEIU4l3poKjqQYiCxTXJvMWTdOOvwr-KKElltdEaLfShxJonsbKlE',
+    badge: null,
     premium: false,
     price: null,
     categories: ['Professional', 'Fresher']
@@ -78,7 +87,7 @@ const templates = [
     id: 'minimalist',
     name: 'Minimalist Clean',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCWSf5KqJXpnUe2P5etSyxSyj0HDdEGuC0j_DBXMvLMZj3ySdHaxZRIBwtUSNqt8EO7ewvTQtkOpGpiyOEkEdKjX8szkQI-fQrDQ7sEVFfcuUfvqgDdvfljC-bN2J1o0b1eXqJ1nd5VdWXlrjET9cNNDTgh4losFWKkRYeiMS_QIP4I2WzGi4xGifPS42PPGqQ250XLWhqNEepscckkDWyznVjU9fsHe4t652Y2V8q40kk8GS614GFeGGV-jMegMLMSau7_cni_7yM',
-    badge: 'New',
+    badge: null,
     premium: false,
     price: null,
     categories: ['Minimalist', 'Fresher']
@@ -102,13 +111,49 @@ const templates = [
     categories: ['Fresher', 'Professional']
   },
   {
+    id: 'compact',
+    name: 'Compact Layout',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXZHriPv_WFCa0lnLDdJ0BYQImtMkpUo52RupM-2jpp44nLT21y5FFkXofOx2oMQMsBCGfQwu06vRp-lXxoJMZSJt3XxlmW5bzjPIiTPV7qDAIBz16tzc_0-S4WD23sofDukGEKqmSBkeE84vIRmkUkrzcQocMLZQaRLqaDMWuAELCOEyWXZMx9GGlpGz7D7cPnZIXTzgTdhVxVhQf0wx46vRUypRE65_ZA83B_B19GwSnY2us36dG88eSKk0IcwSLegdKvFkR42A',
+    badge: null,
+    premium: false,
+    price: null,
+    categories: ['Professional', 'Experienced']
+  },
+  {
+    id: 'bold',
+    name: 'Bold Impact',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPu0GcLzMCDWY2P5smAXfqsvd3s13GLbYHo2QimIs7s_wm_dnsa8B29Jt3wKWHe0IOdY06Tss63Rv2hplKgbP6b4SWmYLC-7gZQSJ6SIr3AkB3em1bL1PddV30hgXmudIzZVksFGeEaMNbZTrNG5FR0u4eHm8EQsc27iQ6aJp6Cu38N9wV3VzY7PuTTIS_egTZhKWLSk_GQ7ruTpWH_PzrhkeGO4uMfTbdjmnzsPfgkBQlcHSYkn5d4C2UZmfuXKI_qJHTlpvrXPE',
+    badge: null,
+    premium: false,
+    price: null,
+    categories: ['Professional', 'Experienced']
+  },
+  {
     id: 'academic',
     name: 'Academic CV',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC3bI2_KyL5nc_fXsThSE-tat_GT7G2-gHJDWkvJSpDfWemKBjqlujy7RgfGkk-1VUJwfgLBR5RlTCXvb9VceK-tEBnwxbN8fFBHlVHhSAyRcvSwBWijcIji59-6EfmgOEnZ7kPAUz7nxI4CSSw59CA7CWkp2cc3LQK5G9xa6IV0xwVwE6qKoXlwYl5vyCz5FsSM5YgB_hK359mEx425Ric_GCeoSCIBQGle_mUZUCLC7Su1wZ9Lk_f3vjVoWiq50UrA8Uys8EfvUU',
     badge: null,
-    premium: true,
-    price: '$9.99',
+    premium: false,
+    price: null,
     categories: ['Professional', 'Experienced']
+  },
+  {
+    id: 'elegant',
+    name: 'Elegant Professional',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBmtw3hYsOrUassgMvh4kLTVyGBGffh6LyOJB3wO-EwxGQTDJRpIVO3oh7zncIdRxc_8bg1suJXFgWTM9AgUGf0dxhkXD9K010-hYNgN6AWkrEv14oj4q75xLovXoz60fEW0ApMB-ZkP6AMzQAWnXlXIyUyG-NpzWyngQaWfSx9LFBx15YMGfSHO5CJGE9yEGfvGbCyjYrnHTraQ7MTy3R9-FZEIU4l3poKjqQYiCxTXJvMWTdOOvwr-KKElltdEaLfShxJonsbKlE',
+    badge: null,
+    premium: false,
+    price: null,
+    categories: ['Professional', 'Fresher']
+  },
+  {
+    id: 'clean',
+    name: 'Clean Minimal',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCWSf5KqJXpnUe2P5etSyxSyj0HDdEGuC0j_DBXMvLMZj3ySdHaxZRIBwtUSNqt8EO7ewvTQtkOpGpiyOEkEdKjX8szkQI-fQrDQ7sEVFfcuUfvqgDdvfljC-bN2J1o0b1eXqJ1nd5VdWXlrjET9cNNDTgh4losFWKkRYeiMS_QIP4I2WzGi4xGifPS42PPGqQ250XLWhqNEepscckkDWyznVjU9fsHe4t652Y2V8q40kk8GS614GFeGGV-jMegMLMSau7_cni_7yM',
+    badge: null,
+    premium: false,
+    price: null,
+    categories: ['Minimalist', 'Professional']
   },
   {
     id: 'designer',
@@ -127,6 +172,7 @@ const Templates: React.FC = () => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
+  const [previewTemplate, setPreviewTemplate] = useState<typeof templates[0] | null>(null);
 
   const handleSelectTemplate = (id: string) => {
     navigate(`/editor?template=${id}`);
@@ -144,6 +190,7 @@ const Templates: React.FC = () => {
     <div className="font-display bg-background-light dark:bg-background-dark min-h-screen">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-16">
         <div className="flex flex-col gap-8">
+          {/* Header */}
           <div className="flex flex-wrap justify-between gap-4 items-start">
             <div className="flex flex-col gap-3">
               <p className="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
@@ -155,6 +202,7 @@ const Templates: React.FC = () => {
             </div>
           </div>
           
+          {/* Filters */}
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-lg flex-wrap">
               {categories.map((category) => (
@@ -186,7 +234,8 @@ const Templates: React.FC = () => {
             </label>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {/* Template Cards Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {filteredTemplates.length === 0 ? (
                 <div className="col-span-full text-center py-20 text-slate-500">
                     <p className="text-lg">No templates found matching your criteria.</p>
@@ -199,58 +248,72 @@ const Templates: React.FC = () => {
                 </div>
             ) : filteredTemplates.map((template, index) => (
               <React.Fragment key={template.id}>
-                {/* Insert AdSense banner after the 4th item visually, or roughly in the middle */}
-                {index === 4 && (
-                   <div className="sm:col-span-2 md:col-span-3 lg:col-span-4 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center min-h-[90px] animate-pulse border border-dashed border-slate-300 dark:border-slate-700">
+                {/* Insert AdSense banner */}
+                {index === 5 && (
+                   <div className="col-span-full rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center min-h-[90px] animate-pulse border border-dashed border-slate-300 dark:border-slate-700">
                      <p className="text-slate-400 dark:text-slate-500 text-sm font-medium">AdSense Banner (728x90)</p>
                    </div>
                 )}
                 
-                <div className="group relative flex flex-col rounded-lg overflow-hidden border border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-800/50 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                {/* Template Card */}
+                <div className="group relative flex flex-col rounded-xl overflow-hidden border border-slate-200/80 dark:border-slate-700/80 bg-white dark:bg-slate-800/50 shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-primary/50 cursor-pointer">
+                  {/* Badges */}
                   {template.badge && (
-                    <div className="absolute top-3 right-3 z-10 flex gap-2">
-                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${template.badge === 'Popular' ? 'bg-primary/20 text-primary dark:bg-primary/30 dark:text-white' : 'bg-sky-500/20 text-sky-600 dark:text-sky-300'}`}>
+                    <div className="absolute top-2 right-2 z-10">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm ${template.badge === 'Popular' ? 'bg-primary/90 text-white' : 'bg-sky-500/90 text-white'}`}>
                         {template.badge}
                       </span>
                     </div>
                   )}
                   {template.premium && (
-                    <div className="absolute top-3 right-3 z-10 flex gap-2">
-                       <span className="flex items-center gap-1 text-xs font-bold bg-amber-500/20 text-amber-600 dark:text-amber-300 px-2.5 py-1 rounded-full">
-                         <span className="material-symbols-outlined text-sm" style={{fontVariationSettings: "'FILL' 1"}}>lock</span>
+                    <div className="absolute top-2 right-2 z-10">
+                       <span className="flex items-center gap-0.5 text-[10px] font-bold bg-amber-500/90 text-white px-2 py-0.5 rounded-full backdrop-blur-sm">
+                         <span className="material-symbols-outlined text-xs" style={{fontVariationSettings: "'FILL' 1"}}>lock</span>
                          Premium
                        </span>
                     </div>
                   )}
                   
+                  {/* Template Preview Image */}
                   <div 
-                    className="aspect-[3/4] bg-cover bg-center" 
+                    onClick={() => setPreviewTemplate(template)}
+                    className="aspect-[3/4] bg-cover bg-center relative overflow-hidden" 
                     style={{ backgroundImage: `url("${template.image}")` }}
-                  ></div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  
-                  <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30">
-                    <button 
-                      onClick={() => handleSelectTemplate(template.id)}
-                      className="w-full h-10 px-4 rounded-lg bg-primary text-white text-sm font-bold shadow-lg transform active:scale-95 transition-transform"
-                    >
-                      Use This Template
-                    </button>
+                  >
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="flex flex-col gap-2 items-center">
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setPreviewTemplate(template);
+                          }}
+                          className="px-3 py-1.5 rounded-lg bg-white/20 backdrop-blur-md text-white text-xs font-semibold border border-white/30 hover:bg-white/30 transition-all"
+                        >
+                          <span className="material-symbols-outlined text-sm">visibility</span>
+                        </button>
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSelectTemplate(template.id);
+                          }}
+                          className="px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-bold shadow-lg hover:bg-primary/90 transition-all"
+                        >
+                          Use Template
+                        </button>
+                      </div>
+                    </div>
                   </div>
                   
-                  <div className="p-4 flex flex-col flex-1">
-                     <div className="flex justify-between items-start">
-                        <div>
-                            <h3 className="font-bold text-slate-800 dark:text-white">{template.name}</h3>
-                            <div className="flex gap-2 mt-1.5">
-                                <span className="text-xs font-medium text-green-600 dark:text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full">ATS Friendly</span>
-                            </div>
-                        </div>
-                        {template.price && (
-                           <p className="text-sm font-bold text-slate-700 dark:text-slate-200">{template.price}</p>
-                        )}
-                     </div>
+                  {/* Template Info */}
+                  <div className="p-3 flex flex-col">
+                    <h3 className="font-bold text-sm text-slate-800 dark:text-white truncate">{template.name}</h3>
+                    <div className="flex gap-1 mt-1.5">
+                      <span className="text-[10px] font-medium text-green-600 dark:text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded">ATS</span>
+                      {template.categories.slice(0, 1).map(cat => (
+                        <span key={cat} className="text-[10px] font-medium text-slate-600 dark:text-slate-400 bg-slate-500/10 px-1.5 py-0.5 rounded">{cat}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </React.Fragment>
@@ -258,6 +321,100 @@ const Templates: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Preview Modal */}
+      {previewTemplate && (
+        <div 
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setPreviewTemplate(null)}
+        >
+          <div 
+            className="bg-white dark:bg-slate-900 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden shadow-2xl animate-in zoom-in duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-700">
+              <div className="flex items-center gap-4">
+                <div>
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{previewTemplate.name}</h2>
+                  <div className="flex gap-2 mt-2">
+                    {previewTemplate.categories.map(cat => (
+                      <span key={cat} className="text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <button 
+                onClick={() => setPreviewTemplate(null)}
+                className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              >
+                <span className="material-symbols-outlined text-slate-600 dark:text-slate-400">close</span>
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 overflow-y-auto max-h-[calc(90vh-180px)]">
+              <div className="flex flex-col lg:flex-row gap-6">
+                {/* Template Preview */}
+                <div className="flex-1">
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700">
+                    <img 
+                      src={previewTemplate.image} 
+                      alt={previewTemplate.name}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+
+                {/* Template Details */}
+                <div className="lg:w-80 flex flex-col gap-4">
+                  <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4">
+                    <h3 className="font-bold text-slate-900 dark:text-white mb-3">Features</h3>
+                    <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                      <li className="flex items-center gap-2">
+                        <span className="material-symbols-outlined text-green-600 text-base">check_circle</span>
+                        ATS-Friendly Format
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="material-symbols-outlined text-green-600 text-base">check_circle</span>
+                        Easy to Customize
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="material-symbols-outlined text-green-600 text-base">check_circle</span>
+                        Professional Design
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="material-symbols-outlined text-green-600 text-base">check_circle</span>
+                        Print-Ready
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-primary/5 dark:bg-primary/10 rounded-xl p-4">
+                    <h3 className="font-bold text-slate-900 dark:text-white mb-2">Best For</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {previewTemplate.categories.map(cat => (
+                        <span key={cat} className="text-xs font-semibold text-primary bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full">
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button 
+                    onClick={() => handleSelectTemplate(previewTemplate.id)}
+                    className="w-full py-3 px-6 rounded-xl bg-primary text-white font-bold shadow-lg hover:bg-primary/90 transition-all hover:scale-105 active:scale-95"
+                  >
+                    Use This Template
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

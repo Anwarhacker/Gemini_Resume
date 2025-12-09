@@ -48,7 +48,12 @@ export const useResume = () => {
   }, []);
 
   const setTemplate = useCallback((templateId: string) => {
-    setResumeData(prev => ({ ...prev, templateId }));
+    console.log('🎨 Setting template to:', templateId);
+    setResumeData(prev => {
+      const newData = { ...prev, templateId };
+      console.log('✅ Template updated. New templateId:', newData.templateId);
+      return newData;
+    });
   }, []);
 
   const setFont = useCallback((font: 'sans' | 'serif' | 'mono') => {

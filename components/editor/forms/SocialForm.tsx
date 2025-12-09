@@ -13,7 +13,7 @@ const SocialForm: React.FC<Props> = ({ data, update }) => {
     const change = (id: string, field: string, val: string) => update({ socialLinks: data.socialLinks.map(s => s.id === id ? { ...s, [field]: val } : s) });
 
     return (
-        <div className="space-y-4">
+        <div className="space-y-4 p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800">
             {data.socialLinks.map((link) => (
                 <div key={link.id} className="flex gap-4 items-center">
                     <select className="form-select w-32 rounded-lg border-slate-300" value={link.platform} onChange={e => change(link.id, 'platform', e.target.value)}>

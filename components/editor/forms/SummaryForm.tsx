@@ -19,7 +19,7 @@ const SummaryForm: React.FC<Props> = ({ data, update }) => {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800">
       <label className="flex flex-col w-full gap-2">
         <span className="text-sm font-semibold text-slate-700">Professional Summary</span>
         <textarea 
