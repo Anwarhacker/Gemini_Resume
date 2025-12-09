@@ -408,7 +408,7 @@ const Editor: React.FC = () => {
 
                             {/* Font Selector */}
                             <div className="flex flex-row gap-2">
-                                <h3 className="text-xs font-bold uppercase text-slate-500 my-auto tracking-wider">Typography: </h3>
+                                <h3 className="text-xs font-bold uppercase text-slate-500 my-auto tracking-wider">Font: </h3>
                                 <div className="flex p-1 bg-slate-100 rounded-lg w-full">
                                     {fontOptions.map(f => (
                                         <button

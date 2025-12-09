@@ -19,7 +19,7 @@ const TermsOfService: React.FC = () => {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">1. Acceptance of Terms</h2>
               <p className="text-slate-600 leading-relaxed">
-                By accessing and using ResumeCraft AI, you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to these Terms of Service, please do not use our service.
+                By accessing and using ResumeCraft, you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to these Terms of Service, please do not use our service.
               </p>
             </div>
 
@@ -29,7 +29,7 @@ const TermsOfService: React.FC = () => {
                 2. Use License
               </h2>
               <p className="text-slate-600 leading-relaxed mb-3">
-                Permission is granted to temporarily use ResumeCraft AI for personal, non-commercial purposes. This includes the right to:
+                Permission is granted to temporarily use ResumeCraft for personal, non-commercial purposes. This includes the right to:
               </p>
               <ul className="list-disc pl-6 text-slate-600 space-y-2">
                 <li>Create and edit resumes using our platform</li>
@@ -59,7 +59,7 @@ const TermsOfService: React.FC = () => {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">4. Your Content</h2>
               <p className="text-slate-600 leading-relaxed">
-                You retain all rights to the content you create using ResumeCraft AI. By using our service, you grant us permission to process your information to provide AI-powered suggestions and service improvements. We do not claim ownership of your resume content.
+                You retain all rights to the content you create using ResumeCraft. By using our service, you grant us permission to process your information to provide AI-powered suggestions and service improvements. We do not claim ownership of your resume content.
               </p>
             </div>
 
@@ -73,14 +73,14 @@ const TermsOfService: React.FC = () => {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">6. Disclaimer</h2>
               <p className="text-slate-600 leading-relaxed">
-                ResumeCraft AI is provided "as is" without any representations or warranties. We do not guarantee that the service will be error-free or uninterrupted. We are not responsible for any employment decisions made based on resumes created using our platform.
+                ResumeCraft is provided "as is" without any representations or warranties. We do not guarantee that the service will be error-free or uninterrupted. We are not responsible for any employment decisions made based on resumes created using our platform.
               </p>
             </div>
 
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">7. Limitation of Liability</h2>
               <p className="text-slate-600 leading-relaxed">
-                In no event shall ResumeCraft AI or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit) arising out of the use or inability to use the service.
+                In no event shall ResumeCraft or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit) arising out of the use or inability to use the service.
               </p>
             </div>
 
@@ -101,7 +101,7 @@ const TermsOfService: React.FC = () => {
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">10. Governing Law</h2>
               <p className="text-slate-600 leading-relaxed">
-                These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which ResumeCraft AI operates, without regard to its conflict of law provisions.
+                These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which ResumeCraft operates, without regard to its conflict of law provisions.
               </p>
             </div>
 

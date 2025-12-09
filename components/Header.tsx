@@ -13,7 +13,7 @@ const Header: React.FC = () => {
             <FileText className="h-6 w-6 text-white" />
           </div>
           <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-            ResumeCraft AI
+            ResumeCraft
           </span>
         </Link>
 

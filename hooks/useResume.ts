@@ -1,8 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { ResumeData, initialResumeState } from '../types';
 import { EXAMPLE_DATA } from '../data/exampleData';
-
-const STORAGE_KEY = 'resume_craft_data_v1';
+import { STORAGE_KEY, STORAGE_DEBOUNCE_DELAY } from '../constants';
 
 export const useResume = () => {
   const [resumeData, setResumeData] = useState<ResumeData>(() => {
@@ -15,13 +14,31 @@ export const useResume = () => {
     }
   });
 
-  // Persist to local storage whenever data changes
+  // Use ref to store the debounce timer
+  const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Debounced localStorage save
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(resumeData));
-    } catch (e) {
-      console.error('Failed to save resume data', e);
+    // Clear existing timer
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
     }
+
+    // Set new timer
+    saveTimeoutRef.current = setTimeout(() => {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(resumeData));
+      } catch (e) {
+        console.error('Failed to save resume data', e);
+      }
+    }, STORAGE_DEBOUNCE_DELAY);
+
+    // Cleanup on unmount
+    return () => {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
   }, [resumeData]);
 
   const updateResume = useCallback((newData: Partial<ResumeData>) => {
@@ -31,46 +48,61 @@ export const useResume = () => {
   const loadDemoData = useCallback(() => {
     // Preserve template and font settings when loading demo data
     setResumeData(prev => ({
-      ...JSON.parse(JSON.stringify(EXAMPLE_DATA)),
+      ...structuredClone(EXAMPLE_DATA),
       templateId: prev.templateId,
       font: prev.font
     }));
   }, []);
 
   const clearResumeData = useCallback(() => {
-    if (window.confirm("Are you sure you want to clear all data? This cannot be undone.")) {
-      setResumeData(prev => ({
-        ...JSON.parse(JSON.stringify(initialResumeState)),
-        templateId: prev.templateId,
-        font: prev.font
-      }));
-    }
+    return new Promise<boolean>((resolve) => {
+      const confirmed = window.confirm("Are you sure you want to clear all data? This cannot be undone.");
+      if (confirmed) {
+        setResumeData(prev => ({
+          ...structuredClone(initialResumeState),
+          templateId: prev.templateId,
+          font: prev.font
+        }));
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    });
   }, []);
 
   const setTemplate = useCallback((templateId: string) => {
-    console.log('🎨 Setting template to:', templateId);
-    setResumeData(prev => {
-      const newData = { ...prev, templateId };
-      console.log('✅ Template updated. New templateId:', newData.templateId);
-      return newData;
-    });
+    setResumeData(prev => ({ ...prev, templateId }));
   }, []);
 
   const setFont = useCallback((font: 'sans' | 'serif' | 'mono') => {
     setResumeData(prev => ({ ...prev, font }));
   }, []);
 
-  const importJson = useCallback((json: string) => {
+  const importJson = useCallback((json: string): { success: boolean; error?: string } => {
     try {
       const parsed = JSON.parse(json);
-      if (parsed.personalInfo && Array.isArray(parsed.education)) {
-        setResumeData(parsed);
-        return true;
+
+      // Enhanced validation
+      if (!parsed.personalInfo || typeof parsed.personalInfo !== 'object') {
+        return { success: false, error: 'Invalid file structure: missing personalInfo' };
       }
+
+      if (!Array.isArray(parsed.education)) {
+        return { success: false, error: 'Invalid file structure: education must be an array' };
+      }
+
+      if (!Array.isArray(parsed.experience)) {
+        return { success: false, error: 'Invalid file structure: experience must be an array' };
+      }
+
+      setResumeData(parsed);
+      return { success: true };
     } catch (e) {
-      console.error(e);
+      if (e instanceof SyntaxError) {
+        return { success: false, error: 'Invalid JSON format' };
+      }
+      return { success: false, error: 'Failed to import data' };
     }
-    return false;
   }, []);
 
   return {

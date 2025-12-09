@@ -10,7 +10,7 @@ const HelpCenter: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <HelpCircle className="w-16 h-16 mx-auto text-blue-600 mb-4" />
           <h1 className="text-4xl lg:text-5xl font-black text-slate-900 mb-4">Help Center</h1>
-          <p className="text-lg text-slate-600">Find answers to common questions and learn how to make the most of ResumeCraft AI</p>
+          <p className="text-lg text-slate-600">Find answers to common questions and learn how to make the most of ResumeCraft</p>
         </div>
 
         {/* FAQ Section */}
@@ -27,9 +27,9 @@ const HelpCenter: React.FC = () => {
               </div>
 
               <div className="border-b border-slate-100 pb-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Is ResumeCraft AI really free?</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Is ResumeCraft really free?</h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Yes! ResumeCraft AI is completely free to use. You can create, edit, and download your resume without any payment or credit card required.
+                  Yes! ResumeCraft is completely free to use. You can create, edit, and download your resume without any payment or credit card required.
                 </p>
               </div>
 
