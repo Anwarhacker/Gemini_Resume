@@ -32,6 +32,8 @@ const steps = [
 
 const availableTemplates = [
     { id: 'modern', name: 'Modern', color: 'bg-slate-800' },
+    { id: 'professional', name: 'Professional', color: 'bg-slate-700' },
+    { id: 'prestige', name: 'Prestige', color: 'bg-amber-600' },
     { id: 'simple', name: 'Simple', color: 'bg-slate-400' },
     { id: 'swiss', name: 'Swiss', color: 'bg-red-600' },
     { id: 'coral', name: 'Coral', color: 'bg-orange-400' },
@@ -164,6 +166,76 @@ const Editor: React.FC = () => {
     }
   };
 
+  const handlePrint = () => {
+    const printWindow = window.open('', '_blank');
+    if (!printWindow) {
+      alert('Please allow popups to print the resume.');
+      return;
+    }
+    
+    const resumeElement = document.getElementById('resume-preview');
+    if (!resumeElement) {
+      alert('Could not find resume preview.');
+      printWindow.close();
+      return;
+    }
+    
+    // Clone the resume with all styles
+    const clonedResume = resumeElement.cloneNode(true) as HTMLElement;
+    clonedResume.style.transform = 'none';
+    clonedResume.style.width = '210mm';
+    clonedResume.style.minHeight = '297mm';
+    
+    // Get all stylesheets from current document
+    let styles = '';
+    for (let i = 0; i < document.styleSheets.length; i++) {
+      try {
+        const sheet = document.styleSheets[i];
+        if (sheet.href) {
+          styles += `<link rel="stylesheet" href="${sheet.href}">`;
+        } else if (sheet.cssRules) {
+          styles += '<style>';
+          for (let j = 0; j < sheet.cssRules.length; j++) {
+            styles += sheet.cssRules[j].cssText;
+          }
+          styles += '</style>';
+        }
+      } catch (e) {
+        // Skip stylesheets that can't be accessed (CORS)
+        if (document.styleSheets[i].href) {
+          styles += `<link rel="stylesheet" href="${document.styleSheets[i].href}">`;
+        }
+      }
+    }
+    
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>${resumeData.personalInfo.fullName || 'Resume'} - Print</title>
+          <meta charset="UTF-8">
+          ${styles}
+          <style>
+            @media print {
+              @page { margin: 0; size: A4; }
+              body { margin: 0; padding: 0; }
+              * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            }
+            body { margin: 0; padding: 0; background: white; }
+          </style>
+          <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+        </head>
+        <body>${clonedResume.outerHTML}</body>
+      </html>
+    `);
+    printWindow.document.close();
+    
+    // Wait for styles to load before printing
+    setTimeout(() => {
+      printWindow.print();
+    }, 750);
+  };
+
   const renderStep = () => {
     switch(currentStep) {
       case 0: return <PersonalForm data={resumeData} update={updateResume} />;
@@ -262,6 +334,13 @@ const Editor: React.FC = () => {
                     title="Clear all fields"
                  >
                     <MaterialIcon name="delete_sweep" className="text-[18px]" /> <span className="hidden sm:inline">Clear</span>
+                 </button>
+                 <button 
+                    onClick={handlePrint}
+                    className="flex items-center gap-2 px-3 py-1.5 bg-slate-600 text-white rounded-lg hover:bg-slate-700 text-sm font-semibold shadow-sm transition-transform active:scale-95"
+                    title="Print resume"
+                 >
+                    <MaterialIcon name="print" className="text-[18px]" /> <span className="hidden xs:inline">Print</span>
                  </button>
                  <button 
                     onClick={() => downloadPDF('resume-preview', resumeData)} 

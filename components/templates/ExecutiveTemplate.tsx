@@ -33,7 +33,7 @@ export const ExecutiveTemplate = ({ data }: { data: ResumeData }) => {
             <div className="p-10 flex-1 space-y-8">
                 {data.summary && (
                     <section>
-                        <h3 className="text-sm font-bold uppercase tracking-widest text-slate-800 border-b-2 border-slate-800 pb-2 mb-4">Executive Profile</h3>
+                        <h3 className="text-sm font-bold uppercase tracking-widest text-slate-800 border-b-2 border-slate-800 pb-4 mb-4">Executive Profile</h3>
                         <p className="text-sm leading-relaxed text-slate-700 text-justify">{data.summary}</p>
                     </section>
                 )}
@@ -77,7 +77,7 @@ export const ExecutiveTemplate = ({ data }: { data: ResumeData }) => {
                             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-800 border-b-2 border-slate-800 pb-2 mb-4">Core Competencies</h3>
                             <div className="flex flex-wrap gap-2">
                                 {data.skills.map(skill => (
-                                    <span key={skill.id} className="border border-slate-300 text-slate-700 text-xs px-3 py-1 font-medium">{skill.name}</span>
+                                    <span key={skill.id} className="text-slate-700 text-xs px-3 py-1 font-medium">{skill.name}</span>
                                 ))}
                             </div>
                         </section>

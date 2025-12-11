@@ -3,10 +3,10 @@ import { ResumeData } from '../../types';
 
 export const BoldTemplate = ({ data }: { data: ResumeData }) => {
   return (
-    <div className="p-10 min-h-full flex flex-col font-sans text-black bg-white">
+    <div className="p-6 min-h-full flex flex-col font-sans text-black bg-white">
       
       {/* ================= HEADER ================= */}
-      <header className="mb-10">
+      <header className="mb-5">
         <h1
           className="text-5xl font-black uppercase mb-4 tracking-tighter"
           style={{ lineHeight: '1.1' }}
@@ -44,9 +44,9 @@ export const BoldTemplate = ({ data }: { data: ResumeData }) => {
           {/* PROFILE */}
           {data.summary?.trim() && (
             <section>
-              <div className="bg-black text-white px-3 py-2 inline-block mb-4">
+              <div className="bg-black px-3 py-2 inline-block mb-4">
                 <h3
-                  className="text-lg font-black uppercase tracking-wide"
+                  className="text-white uppercase tracking-wide"
                   style={{ lineHeight: '1' }}
                 >
                   Profile
@@ -62,7 +62,7 @@ export const BoldTemplate = ({ data }: { data: ResumeData }) => {
           {/* EXPERIENCE */}
           {data.experience?.length > 0 && (
             <section>
-              <div className="bg-black text-white px-3 py-2 inline-block mb-6">
+              <div className="bg-black text-white px-3 py-2 inline-block mb-3">
                 <h3 className="text-lg font-black uppercase tracking-wide" style={{ lineHeight: '1' }}>
                   Experience
                 </h3>
@@ -94,7 +94,7 @@ export const BoldTemplate = ({ data }: { data: ResumeData }) => {
           {/* PROJECTS */}
           {data.projects?.length > 0 && (
             <section>
-              <div className="bg-black text-white px-3 py-2 inline-block mb-6">
+              <div className="bg-black text-white px-3 py-2 inline-block mb-3">
                 <h3 className="text-lg font-black uppercase tracking-wide" style={{ lineHeight: '1' }}>
                   Projects
                 </h3>

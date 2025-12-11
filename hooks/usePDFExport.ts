@@ -55,7 +55,7 @@ export const usePDFExport = () => {
 
       document.body.appendChild(clone);
 
-      // 3. Inject CSS to fix font clipping
+      // 3. Inject CSS to fix font clipping without affecting layout
       const style = document.createElement('style');
       style.innerHTML = `
         * {
@@ -63,11 +63,12 @@ export const usePDFExport = () => {
           -moz-osx-font-smoothing: grayscale !important;
           text-rendering: geometricPrecision !important;
         }
-        h1, h2, h3, h4, h5, h6, p, span, li, div {
-           padding-bottom: 3px !important; /* Safety buffer */
+        /* Only add padding to text elements that need font clipping prevention */
+        h1, h2, h3, h4, h5, h6, p, li {
+           padding-bottom: 2px !important;
            background-clip: padding-box;
         }
-        /* Ensure specific elements don't collapse */
+        /* Material icons */
         .material-symbols-outlined {
            padding-bottom: 0 !important;
            vertical-align: middle;

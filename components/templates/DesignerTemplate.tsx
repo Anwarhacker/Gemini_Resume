@@ -5,7 +5,7 @@ import { MaterialIcon } from '../common/MaterialIcon';
 export const DesignerTemplate = ({ data }: { data: ResumeData }) => {
     return (
         <div className="h-full flex flex-col font-sans text-slate-900 bg-white">
-            <header className="p-10 bg-slate-50 relative overflow-hidden">
+            <header className="p-6 bg-slate-50 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -translate-y-1/2 translate-x-1/4"></div>
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 translate-y-1/2 -translate-x-1/4"></div>
                 
@@ -15,7 +15,7 @@ export const DesignerTemplate = ({ data }: { data: ResumeData }) => {
                     </h1>
                     <p className="text-xl font-medium text-slate-600 tracking-widest uppercase">{data.personalInfo.jobTitle}</p>
                     
-                    <div className="mt-6 flex justify-center flex-wrap gap-4 text-sm font-semibold text-slate-500">
+                    <div className="mt-6 flex justify-center flex-wrap gap-2 text-sm font-semibold text-slate-500">
                          {data.personalInfo.email && <span>{data.personalInfo.email}</span>}
                          {data.personalInfo.phone && <span>• {data.personalInfo.phone}</span>}
                          {data.personalInfo.city && <span>• {data.personalInfo.city}</span>}
@@ -26,11 +26,11 @@ export const DesignerTemplate = ({ data }: { data: ResumeData }) => {
                 </div>
             </header>
 
-            <div className="p-10 grid grid-cols-12 gap-8 flex-1">
-                <div className="col-span-8 space-y-8">
+            <div className="p-10 grid grid-cols-12 gap-4 flex-1">
+                <div className="col-span-8 space-y-4">
                      {data.summary && (
                         <section>
-                            <h3 className="text-lg font-black text-slate-800 mb-3 flex items-center gap-2">
+                            <h3 className="text-lg font-black text-slate-800 mb-2 flex items-center gap-2">
                                 <span className="w-8 h-1 bg-pink-500 rounded-full"></span> Profile
                             </h3>
                             <p className="text-slate-600 leading-relaxed">{data.summary}</p>
@@ -39,10 +39,10 @@ export const DesignerTemplate = ({ data }: { data: ResumeData }) => {
 
                      {data.experience.length > 0 && (
                         <section>
-                             <h3 className="text-lg font-black text-slate-800 mb-6 flex items-center gap-2">
+                             <h3 className="text-lg font-black text-slate-800 mb-4 flex items-center gap-2">
                                 <span className="w-8 h-1 bg-purple-500 rounded-full"></span> Experience
                             </h3>
-                            <div className="space-y-8">
+                            <div className="space-y-4">
                                 {data.experience.map(exp => (
                                     <div key={exp.id} className="relative pl-6 border-l-2 border-slate-100">
                                         <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full border-2 border-white bg-slate-300"></div>

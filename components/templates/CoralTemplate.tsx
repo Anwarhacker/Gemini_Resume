@@ -63,7 +63,7 @@ export const CoralTemplate = ({ data }: { data: ResumeData }) => {
                             <h3 className="text-center text-xs font-bold uppercase tracking-widest text-[#ff7f50] mb-4">Skills</h3>
                             <div className="flex flex-wrap justify-center gap-2">
                                 {data.skills.map(skill => (
-                                    <span key={skill.id} className="text-xs bg-orange-50 text-orange-800 px-2 py-1 rounded">{skill.name}</span>
+                                    <span key={skill.id} className="text-xs bg-orange-50 text-orange-800 px-2 py-1 pb-2 rounded">{skill.name}</span>
                                 ))}
                             </div>
                         </section>

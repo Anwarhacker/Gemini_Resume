@@ -21,6 +21,8 @@ const CoralTemplate = React.lazy(() => import('../templates/CoralTemplate').then
 const UrbanTemplate = React.lazy(() => import('../templates/UrbanTemplate').then(m => ({ default: m.UrbanTemplate })));
 const OnyxTemplate = React.lazy(() => import('../templates/OnyxTemplate').then(m => ({ default: m.OnyxTemplate })));
 const SerifTemplate = React.lazy(() => import('../templates/SerifTemplate').then(m => ({ default: m.SerifTemplate })));
+const ProfessionalTemplate = React.lazy(() => import('../templates/ProfessionalTemplate').then(m => ({ default: m.ProfessionalTemplate })));
+const PrestigeTemplate = React.lazy(() => import('../templates/PrestigeTemplate').then(m => ({ default: m.PrestigeTemplate })));
 
 const ResumePreview = ({ data, scale = 1 }: { data: ResumeData, scale?: number }) => {
     console.log('🖼️ ResumePreview rendering with templateId:', data.templateId);
@@ -53,6 +55,8 @@ const ResumePreview = ({ data, scale = 1 }: { data: ResumeData, scale?: number }
             case 'urban': return <UrbanTemplate data={data} />;
             case 'onyx': return <OnyxTemplate data={data} />;
             case 'serif': return <SerifTemplate data={data} />;
+            case 'professional': return <ProfessionalTemplate data={data} />;
+            case 'prestige': return <PrestigeTemplate data={data} />;
             case 'modern':
             default: 
                 console.log('Rendering template:', data.templateId || 'modern');

@@ -59,11 +59,11 @@ export const CompactTemplate = ({ data }: { data: ResumeData }) => {
 
                     <div>
                         {data.skills.length > 0 && (
-                            <section className="mb-5">
+                            <section className="mb-3">
                                 <h3 className="text-xs font-black uppercase border-b border-slate-300 mb-3 pb-1">Skills</h3>
                                 <div className="flex flex-wrap gap-1">
                                     {data.skills.map(s => (
-                                        <span key={s.id} className="text-xs bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 border border-slate-200">{s.name}</span>
+                                        <span key={s.id} className="text-xs px-1.5 py-0.5 rounded text-slate-700">{s.name}</span>
                                     ))}
                                 </div>
                             </section>

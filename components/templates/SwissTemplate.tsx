@@ -18,9 +18,9 @@ export const SwissTemplate = ({ data }: { data: ResumeData }) => {
                 </div>
             </header>
 
-            <div className="flex-1 space-y-12">
+            <div className="flex-1 space-y-8">
                 {data.summary && (
-                    <section className="grid grid-cols-12 gap-6">
+                    <section className="grid grid-cols-12 gap-3">
                          <div className="col-span-3">
                             <h3 className="text-sm font-black uppercase tracking-widest">Profile</h3>
                          </div>
@@ -31,11 +31,11 @@ export const SwissTemplate = ({ data }: { data: ResumeData }) => {
                 )}
 
                 {data.experience.length > 0 && (
-                    <section className="grid grid-cols-12 gap-6">
+                    <section className="grid grid-cols-12 gap-3">
                         <div className="col-span-3">
                              <h3 className="text-sm font-black uppercase tracking-widest">Experience</h3>
                         </div>
-                        <div className="col-span-9 space-y-8">
+                        <div className="col-span-9 space-y-3">
                             {data.experience.map(exp => (
                                 <div key={exp.id}>
                                     <h4 className="text-xl font-bold leading-tight">{exp.position}</h4>
@@ -50,11 +50,11 @@ export const SwissTemplate = ({ data }: { data: ResumeData }) => {
                 )}
 
                 {data.education.length > 0 && (
-                    <section className="grid grid-cols-12 gap-6">
+                    <section className="grid grid-cols-12 gap-3">
                         <div className="col-span-3">
                              <h3 className="text-sm font-black uppercase tracking-widest">Education</h3>
                         </div>
-                        <div className="col-span-9 space-y-6">
+                        <div className="col-span-9 space-y-3">
                             {data.education.map(edu => (
                                 <div key={edu.id}>
                                     <h4 className="text-lg font-bold">{edu.school}</h4>
@@ -67,7 +67,7 @@ export const SwissTemplate = ({ data }: { data: ResumeData }) => {
                 )}
 
                 {data.skills.length > 0 && (
-                    <section className="grid grid-cols-12 gap-6">
+                    <section className="grid grid-cols-12 gap-3">
                         <div className="col-span-3">
                              <h3 className="text-sm font-black uppercase tracking-widest">Skills</h3>
                         </div>
