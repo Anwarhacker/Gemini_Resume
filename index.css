@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+  }
+}
+
+@keyframes gradient-x {
+
+  0%,
+  100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
 /* Custom Styles */
 body {
   font-family: 'Manrope', sans-serif;

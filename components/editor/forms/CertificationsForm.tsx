@@ -15,13 +15,13 @@ const CertificationsForm: React.FC<Props> = ({ data, update }) => {
     return (
         <div className="space-y-6 p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800">
             {data.certifications.map((cert, idx) => (
-                <div key={cert.id} className="p-5 border border-slate-200 rounded-xl bg-slate-50 relative group">
+                <div key={cert.id} className="p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800 relative group">
                     <button onClick={() => remove(cert.id)} className="absolute top-4 right-4 text-slate-400 hover:text-red-500"><MaterialIcon name="delete" /></button>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input placeholder="Certification Name" className="form-input rounded-lg border-slate-300" value={cert.name} onChange={e => change(cert.id, 'name', e.target.value)} />
-                        <input placeholder="Issued By" className="form-input rounded-lg border-slate-300" value={cert.issuer} onChange={e => change(cert.id, 'issuer', e.target.value)} />
-                        <input placeholder="Year" className="form-input rounded-lg border-slate-300" value={cert.year} onChange={e => change(cert.id, 'year', e.target.value)} />
-                        <input placeholder="Credential URL" className="form-input rounded-lg border-slate-300" value={cert.url} onChange={e => change(cert.id, 'url', e.target.value)} />
+                        <input placeholder="Certification Name" className="form-input rounded-lg border-2 border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white p-2 focus:ring-primary focus:border-primary dark:focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" value={cert.name} onChange={e => change(cert.id, 'name', e.target.value)} />
+                        <input placeholder="Issued By" className="form-input rounded-lg border-2 border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white p-2 focus:ring-primary focus:border-primary dark:focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" value={cert.issuer} onChange={e => change(cert.id, 'issuer', e.target.value)} />
+                        <input placeholder="Year" className="form-input rounded-lg border-2 border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white p-2 focus:ring-primary focus:border-primary dark:focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" value={cert.year} onChange={e => change(cert.id, 'year', e.target.value)} />
+                        <input placeholder="Credential URL" className="form-input rounded-lg border-2 border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white p-2 focus:ring-primary focus:border-primary dark:focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" value={cert.url} onChange={e => change(cert.id, 'url', e.target.value)} />
                     </div>
                 </div>
             ))}

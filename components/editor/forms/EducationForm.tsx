@@ -15,17 +15,17 @@ const EducationForm: React.FC<Props> = ({ data, update }) => {
   return (
     <div className="space-y-6">
       {data.education.map((edu, idx) => (
-        <div key={edu.id} className="p-5 border border-slate-200 rounded-xl bg-slate-50 relative group transition-all hover:shadow-sm">
+        <div key={edu.id} className="p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800 relative group transition-all hover:shadow-sm">
           <button onClick={() => remove(edu.id)} className="absolute top-4 right-4 text-slate-400 hover:text-red-500"><MaterialIcon name="delete" /></button>
-          <h4 className="text-xs font-bold uppercase text-slate-400 mb-3 tracking-wider">Education #{idx + 1}</h4>
+          <h4 className="text-xs font-bold uppercase text-slate-400 dark:text-slate-500 mb-3 tracking-wider">Education #{idx + 1}</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input placeholder="School / University" className="form-input rounded-lg border-slate-300" value={edu.school} onChange={e => change(edu.id, 'school', e.target.value)} />
-            <input placeholder="Degree" className="form-input rounded-lg border-slate-300" value={edu.degree} onChange={e => change(edu.id, 'degree', e.target.value)} />
+            <input placeholder="School / University" className="form-input rounded-lg border-2 border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white p-2 focus:ring-primary focus:border-primary dark:focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" value={edu.school} onChange={e => change(edu.id, 'school', e.target.value)} />
+            <input placeholder="Degree" className="form-input rounded-lg border-2 border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white p-2 focus:ring-primary focus:border-primary dark:focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" value={edu.degree} onChange={e => change(edu.id, 'degree', e.target.value)} />
             <div className="grid grid-cols-2 gap-2">
-                <input placeholder="Start Year" className="form-input rounded-lg border-slate-300" value={edu.startDate} onChange={e => change(edu.id, 'startDate', e.target.value)} />
-                <input placeholder="End Year" className="form-input rounded-lg border-slate-300" value={edu.endDate} onChange={e => change(edu.id, 'endDate', e.target.value)} />
+                <input placeholder="Start Year" className="form-input rounded-lg border-2 border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white p-2 focus:ring-primary focus:border-primary dark:focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" value={edu.startDate} onChange={e => change(edu.id, 'startDate', e.target.value)} />
+                <input placeholder="End Year" className="form-input rounded-lg border-2 border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white p-2 focus:ring-primary focus:border-primary dark:focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" value={edu.endDate} onChange={e => change(edu.id, 'endDate', e.target.value)} />
             </div>
-            <input placeholder="CGPA / Grade" className="form-input rounded-lg border-slate-300" value={edu.grade} onChange={e => change(edu.id, 'grade', e.target.value)} />
+            <input placeholder="CGPA / Grade" className="form-input rounded-lg border-2 border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white p-2 focus:ring-primary focus:border-primary dark:focus:border-primary placeholder:text-slate-400 dark:placeholder:text-slate-500" value={edu.grade} onChange={e => change(edu.id, 'grade', e.target.value)} />
           </div>
         </div>
       ))}

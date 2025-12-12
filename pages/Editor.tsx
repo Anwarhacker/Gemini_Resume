@@ -290,33 +290,55 @@ const Editor: React.FC = () => {
                     >
                         <MaterialIcon name="save" className="text-[18px]" /> Save
                     </button>
+                    <Link 
+                        to="/guide"
+                        className="flex items-center gap-2 px-3 py-1.5 text-slate-600 hover:text-slate-900 text-sm font-semibold hover:bg-white rounded-md transition-all"
+                        title="View user guide"
+                    >
+                        <MaterialIcon name="menu_book" className="text-[18px]" /> Guide
+                    </Link>
                  </div>
 
                  {/* Desktop View Toggle - Visible on Large Screens */}
                  <div className="hidden lg:flex items-center gap-1 bg-slate-100 rounded-lg p-1 mr-2">
                     <button 
                         onClick={() => setDesktopView('edit')}
-                        className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-md transition-all ${desktopView === 'edit' ? 'bg-blue-500 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'}`}
+                        className={`relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-md transition-all overflow-hidden ${desktopView === 'edit' ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'}`}
                         title="Show Editor Only"
                     >
-                        <MaterialIcon name="edit" className="text-[18px]" />
-                        <span className="hidden xl:inline">Editor</span>
+                        {desktopView === 'edit' && (
+                            <span className="absolute inset-0 rounded-md p-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x -z-10">
+                                <span className="absolute inset-[2px] bg-white rounded-md"></span>
+                            </span>
+                        )}
+                        <MaterialIcon name="edit" className="text-[18px] relative z-10" />
+                        <span className="hidden xl:inline relative z-10">Editor</span>
                     </button>
                     <button 
                         onClick={() => setDesktopView('preview')}
-                        className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-md transition-all ${desktopView === 'preview' ? 'bg-blue-500 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'}`}
+                        className={`relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-md transition-all overflow-hidden ${desktopView === 'preview' ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'}`}
                         title="Show Preview Only"
                     >
-                        <MaterialIcon name="visibility" className="text-[18px]" />
-                        <span className="hidden xl:inline">Preview</span>
+                        {desktopView === 'preview' && (
+                            <span className="absolute inset-0 rounded-md p-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x -z-10">
+                                <span className="absolute inset-[2px] bg-white rounded-md"></span>
+                            </span>
+                        )}
+                        <MaterialIcon name="visibility" className="text-[18px] relative z-10" />
+                        <span className="hidden xl:inline relative z-10">Preview</span>
                     </button>
                     <button 
                         onClick={() => setDesktopView('both')}
-                        className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-md transition-all ${desktopView === 'both' ? 'bg-blue-500 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'}`}
+                        className={`relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-md transition-all overflow-hidden ${desktopView === 'both' ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'}`}
                         title="Show Both"
                     >
-                        <MaterialIcon name="width_wide" className="text-[18px]" />
-                        <span className="hidden xl:inline">Both</span>
+                        {desktopView === 'both' && (
+                            <span className="absolute inset-0 rounded-md p-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x -z-10">
+                                <span className="absolute inset-[2px] bg-white rounded-md"></span>
+                            </span>
+                        )}
+                        <MaterialIcon name="width_wide" className="text-[18px] relative z-10" />
+                        <span className="hidden xl:inline relative z-10">Both</span>
                     </button>
                     
                  </div>
@@ -330,7 +352,7 @@ const Editor: React.FC = () => {
                  </button>
                  <button 
                     onClick={clearResumeData}
-                    className="flex items-center gap-2 px-3 py-1.5 text-slate-500 hover:text-red-600 text-sm font-semibold transition-colors hover:bg-red-50 rounded-lg"
+                    className="flex items-center gap-2 px-3 py-1.5 text-red-600 text-sm font-semibold transition-colors bg-red-100 hover:bg-red-200 rounded-lg"
                     title="Clear all fields"
                  >
                     <MaterialIcon name="delete_sweep" className="text-[18px]" /> <span className="hidden sm:inline">Clear</span>
@@ -390,8 +412,18 @@ const Editor: React.FC = () => {
 
             {/* Mobile Tab Toggle */}
             <div className="lg:hidden absolute top-0 left-0 right-0 h-12 bg-white border-b border-gray-200 flex z-40">
-                <button onClick={() => setMobileTab('edit')} className={`flex-1 font-bold text-sm ${mobileTab === 'edit' ? 'text-primary border-b-2 border-primary' : 'text-slate-500'}`}>Editor</button>
-                <button onClick={() => setMobileTab('preview')} className={`flex-1 font-bold text-sm ${mobileTab === 'preview' ? 'text-primary border-b-2 border-primary' : 'text-slate-500'}`}>Preview</button>
+                <button onClick={() => setMobileTab('edit')} className={`relative flex-1 font-bold text-sm transition-all ${mobileTab === 'edit' ? 'text-primary' : 'text-slate-500'}`}>
+                    Editor
+                    {mobileTab === 'edit' && (
+                        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x"></span>
+                    )}
+                </button>
+                <button onClick={() => setMobileTab('preview')} className={`relative flex-1 font-bold text-sm transition-all ${mobileTab === 'preview' ? 'text-primary' : 'text-slate-500'}`}>
+                    Preview
+                    {mobileTab === 'preview' && (
+                        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x"></span>
+                    )}
+                </button>
             </div>
 
             {/* Middle Form Area */}

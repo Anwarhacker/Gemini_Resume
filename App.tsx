@@ -1,10 +1,11 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Templates from './pages/Templates';
 import Editor from './pages/Editor';
+import Guide from './pages/Guide';
 import HelpCenter from './pages/HelpCenter';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
@@ -35,6 +36,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/templates" element={<Templates />} />
           <Route path="/editor" element={<Editor />} />
+          <Route path="/guide" element={<Guide />} />
           <Route path="/help" element={<HelpCenter />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
