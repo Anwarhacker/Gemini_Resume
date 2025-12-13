@@ -306,7 +306,7 @@ const Editor: React.FC = () => {
                     <span className="hidden md:inline">ResumeBuilder</span>
                 </Link>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-2">
                  <input 
                     type="file" 
                     ref={fileInputRef} 
@@ -315,122 +315,119 @@ const Editor: React.FC = () => {
                     accept=".json" 
                  />
                  
-                 <div className="flex items-center gap-1 bg-slate-100 rounded-lg p-1 mr-2 hidden md:flex">
+                 {/* Quick Actions Group */}
+                 <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-800 rounded-lg p-1 border border-slate-200 dark:border-slate-700">
+                    <button 
+                        onClick={loadDemoData}
+                        className="flex items-center gap-1.5 px-2.5 py-1.5 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-md text-xs font-semibold transition-all"
+                        title="Autofill with sample data"
+                    >
+                        <MaterialIcon name="auto_awesome" className="text-[16px]" />
+                        <span className="hidden lg:inline">Autofill</span>
+                    </button>
+                    <button 
+                        onClick={() => setShowSectionSelector(true)}
+                        className="flex items-center gap-1.5 px-2.5 py-1.5 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/30 rounded-md text-xs font-semibold transition-all"
+                        title="Customize sections"
+                    >
+                        <MaterialIcon name="tune" className="text-[16px]" />
+                        <span className="hidden lg:inline">Customize</span>
+                    </button>
+                    <button 
+                        onClick={() => {
+                            if (confirm('Clear all data?')) clearResumeData();
+                        }}
+                        className="flex items-center gap-1.5 px-2.5 py-1.5 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-md text-xs font-semibold transition-all"
+                        title="Clear all data"
+                    >
+                        <MaterialIcon name="delete_sweep" className="text-[16px]" />
+                        <span className="hidden lg:inline">Clear</span>
+                    </button>
+                 </div>
+
+                 <div className="w-px h-6 bg-slate-300 dark:bg-slate-600"></div>
+
+                 {/* Data Management Group */}
+                 <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-800 rounded-lg p-1 border border-slate-200 dark:border-slate-700">
                     <button 
                         onClick={() => fileInputRef.current?.click()}
-                        className="flex items-center gap-2 px-3 py-1.5 text-slate-600 hover:text-slate-900 text-sm font-semibold hover:bg-white rounded-md transition-all"
-                        title="Load data from JSON"
+                        className="flex items-center gap-1.5 px-2.5 py-1.5 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 rounded-md text-xs font-semibold transition-all"
+                        title="Load JSON"
                     >
-                        <MaterialIcon name="upload_file" className="text-[18px]" /> Load
+                        <MaterialIcon name="upload_file" className="text-[16px]" />
+                        <span className="hidden xl:inline">Load</span>
                     </button>
                     <button 
                         onClick={handleExportJSON}
-                        className="flex items-center gap-2 px-3 py-1.5 text-slate-600 hover:text-slate-900 text-sm font-semibold hover:bg-white rounded-md transition-all"
-                        title="Save data as JSON"
+                        className="flex items-center gap-1.5 px-2.5 py-1.5 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 rounded-md text-xs font-semibold transition-all"
+                        title="Save JSON"
                     >
-                        <MaterialIcon name="save" className="text-[18px]" /> Save
+                        <MaterialIcon name="save" className="text-[16px]" />
+                        <span className="hidden xl:inline">Save</span>
                     </button>
-                    <Link 
-                        to="/guide"
-                        className="flex items-center gap-2 px-3 py-1.5 text-slate-600 hover:text-slate-900 text-sm font-semibold hover:bg-white rounded-md transition-all"
-                        title="View user guide"
-                    >
-                        <MaterialIcon name="menu_book" className="text-[18px]" /> Guide
-                    </Link>
                  </div>
 
-                 {/* Desktop View Toggle - Visible on Large Screens */}
-                 <div className="hidden lg:flex items-center gap-1 bg-slate-100 rounded-lg p-1 mr-2">
+                 <div className="w-px h-6 bg-slate-300 dark:bg-slate-600 hidden sm:block"></div>
+
+                 {/* View Toggle - Desktop */}
+                 <div className="hidden lg:flex items-center gap-1 bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 rounded-lg p-1 border border-slate-200 dark:border-slate-600">
                     <button 
                         onClick={() => setDesktopView('edit')}
-                        className={`relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-md transition-all overflow-hidden ${desktopView === 'edit' ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'}`}
-                        title="Show Editor Only"
+                        className={`flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition-all ${desktopView === 'edit' ? 'bg-primary text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-600'}`}
+                        title="Editor Only"
                     >
-                        {desktopView === 'edit' && (
-                            <span className="absolute inset-0 rounded-md p-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x -z-10">
-                                <span className="absolute inset-[2px] bg-white rounded-md"></span>
-                            </span>
-                        )}
-                        <MaterialIcon name="edit" className="text-[18px] relative z-10" />
-                        <span className="hidden xl:inline relative z-10">Editor</span>
+                        <MaterialIcon name="edit" className="text-[14px]" />
+                        <span className="hidden xl:inline">Edit</span>
                     </button>
                     <button 
                         onClick={() => setDesktopView('preview')}
-                        className={`relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-md transition-all overflow-hidden ${desktopView === 'preview' ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'}`}
-                        title="Show Preview Only"
+                        className={`flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition-all ${desktopView === 'preview' ? 'bg-primary text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-600'}`}
+                        title="Preview Only"
                     >
-                        {desktopView === 'preview' && (
-                            <span className="absolute inset-0 rounded-md p-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x -z-10">
-                                <span className="absolute inset-[2px] bg-white rounded-md"></span>
-                            </span>
-                        )}
-                        <MaterialIcon name="visibility" className="text-[18px] relative z-10" />
-                        <span className="hidden xl:inline relative z-10">Preview</span>
+                        <MaterialIcon name="visibility" className="text-[14px]" />
+                        <span className="hidden xl:inline">Preview</span>
                     </button>
                     <button 
                         onClick={() => setDesktopView('both')}
-                        className={`relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold rounded-md transition-all overflow-hidden ${desktopView === 'both' ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'}`}
-                        title="Show Both"
+                        className={`flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold rounded-md transition-all ${desktopView === 'both' ? 'bg-primary text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-600'}`}
+                        title="Both"
                     >
-                        {desktopView === 'both' && (
-                            <span className="absolute inset-0 rounded-md p-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x -z-10">
-                                <span className="absolute inset-[2px] bg-white rounded-md"></span>
-                            </span>
-                        )}
-                        <MaterialIcon name="width_wide" className="text-[18px] relative z-10" />
-                        <span className="hidden xl:inline relative z-10">Both</span>
+                        <MaterialIcon name="width_wide" className="text-[14px]" />
+                        <span className="hidden xl:inline">Both</span>
                     </button>
-                    
                  </div>
 
-                 <button 
-                    onClick={loadDemoData}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg hover:bg-indigo-100 text-sm font-semibold transition-colors active:bg-indigo-200"
-                    title="Autofill with sample data"
-                 >
-                    <MaterialIcon name="auto_awesome" className="text-[18px]" /> <span className="hidden sm:inline">Autofill</span>
-                 </button>
-                 <button 
-                    onClick={() => setShowSectionSelector(true)}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 text-sm font-semibold transition-colors active:bg-purple-200"
-                    title="Customize which sections to include"
-                 >
-                    <MaterialIcon name="tune" className="text-[18px]" /> <span className="hidden sm:inline">Customize</span>
-                 </button>
-                 <button 
-                    onClick={() => {
-                        if (confirm('Are you sure you want to clear all data?')) {
-                            clearResumeData();
-                        }
-                    }}
-                    className="flex items-center gap-2 px-3 py-1.5 text-red-600 text-sm font-semibold transition-colors bg-red-100 hover:bg-red-200 rounded-lg"
-                    title="Clear all fields"
-                 >
-                    <MaterialIcon name="delete_sweep" className="text-[18px]" /> <span className="hidden sm:inline">Clear</span>
-                 </button>
-                 <button 
-                    onClick={handlePrint}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-slate-600 text-white rounded-lg hover:bg-slate-700 text-sm font-semibold shadow-sm transition-transform active:scale-95"
-                    title="Print resume"
-                 >
-                    <MaterialIcon name="print" className="text-[18px]" /> <span className="hidden xs:inline">Print</span>
-                 </button>
-                 <button 
-                    onClick={() => downloadPDF('resume-preview', resumeData)} 
-                    disabled={isGenerating}
-                    className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 text-sm font-bold shadow-sm transition-transform active:scale-95 disabled:opacity-70 disabled:cursor-wait"
-                 >
-                    {isGenerating ? (
-                        <>
-                           <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                           <span className="hidden sm:inline">Processing...</span>
-                        </>
-                    ) : (
-                        <>
-                           <MaterialIcon name="download" className="text-[18px]" /> <span className="hidden xs:inline">Download PDF</span>
+                 <div className="w-px h-6 bg-slate-300 dark:bg-slate-600 hidden lg:block"></div>
+
+                 {/* Export Actions */}
+                 <div className="flex items-center gap-1.5">
+                    <button 
+                        onClick={handlePrint}
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-semibold transition-all border border-slate-300 dark:border-slate-600"
+                        title="Print resume"
+                    >
+                        <MaterialIcon name="print" className="text-[16px]" />
+                        <span className="hidden sm:inline">Print</span>
+                    </button>
+                    <button 
+                        onClick={() => downloadPDF('resume-preview', resumeData)} 
+                        disabled={isGenerating}
+                        className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-primary to-indigo-600 text-white rounded-lg hover:from-primary/90 hover:to-indigo-600/90 text-xs font-bold shadow-md transition-all active:scale-95 disabled:opacity-70 disabled:cursor-wait"
+                        title="Download PDF"
+                    >
+                        {isGenerating ? (
+                            <>
+                               <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                               <span className="hidden sm:inline">Generating...</span>
+                            </>
+                        ) : (
+                            <>
+                               <MaterialIcon name="download" className="text-[16px]" />
+                               <span className="hidden sm:inline">PDF</span>
                         </>
                     )}
                  </button>
+                 </div>
             </div>
         </header>
 

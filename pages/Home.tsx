@@ -18,13 +18,13 @@ const Home: React.FC = () => {
             <div className="lg:w-1/2 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-wide uppercase shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-blue-600 mr-2 animate-pulse"></span>
-                v2.0 Now Available with AI
+                ✨ Fully Customizable Resume Builder
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
                 Create a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Professional Resume</span> in Minutes
               </h1>
               <p className="text-base sm:text-lg text-slate-600 max-w-2xl lg:max-w-lg leading-relaxed">
-                Build ATS-optimized resumes with our AI-powered platform. Choose from 18+ professionally designed templates and get hired faster.
+                Build stunning, ATS-optimized resumes with 20+ professionally designed templates. Customize sections, autofill data, and export to PDF instantly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link 
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>18+ Templates</span>
+                  <span>20+ Templates</span>
                 </div>
               </div>
             </div>
@@ -88,15 +88,15 @@ const Home: React.FC = () => {
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mx-auto mb-6 shadow-lg">
                 <span className="text-3xl font-black">1</span>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Choose Template</h3>
-              <p className="text-slate-600">Pick from 18+ professionally designed, ATS-friendly templates</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Choose Template & Sections</h3>
+              <p className="text-slate-600">Select from 20+ professional templates and customize which sections to include</p>
             </div>
             <div className="text-center relative">
               <div className="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mx-auto mb-6 shadow-lg">
                 <span className="text-3xl font-black">2</span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Fill Your Info</h3>
-              <p className="text-slate-600">Add your details with AI-powered suggestions and live preview</p>
+              <p className="text-slate-600">Use autofill for quick start or add details manually with live preview</p>
             </div>
             <div className="text-center relative">
               <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mx-auto mb-6 shadow-lg">
@@ -117,27 +117,48 @@ const Home: React.FC = () => {
             <p className="text-slate-600 text-lg">Our platform provides all the tools required to build a standout resume that passes ATS screening and impresses recruiters.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             <div className="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg">
-                <Zap className="w-7 h-7" />
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg">
+                <Layout className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">AI-Powered Writing</h3>
-              <p className="text-slate-600 leading-relaxed">Stuck on words? Our Gemini AI integration helps generate professional summaries and skill lists tailored to your job title.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">20+ Professional Templates</h3>
+              <p className="text-slate-600 leading-relaxed">Choose from Modern, Professional, Prestige, Designer, and more. All templates are ATS-friendly and beautifully designed.</p>
             </div>
             <div className="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition-all hover:-translate-y-1">
               <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg">
-                <Layout className="w-7 h-7" />
+                <Zap className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Live Real-time Preview</h3>
-              <p className="text-slate-600 leading-relaxed">See changes instantly as you type. No more guessing how your resume will look. WYSIWYG editing at its finest.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Customizable Sections</h3>
+              <p className="text-slate-600 leading-relaxed">Select only the sections you need - Education, Skills, Experience, Projects, Certifications, Languages, Hobbies, and more.</p>
+            </div>
+            <div className="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg">
+                <Sparkles className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Quick Autofill</h3>
+              <p className="text-slate-600 leading-relaxed">Start fast with sample data autofill, then customize to your needs. Perfect for getting started quickly.</p>
             </div>
             <div className="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition-all hover:-translate-y-1">
               <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg">
                 <Download className="w-7 h-7" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Instant PDF Export</h3>
-              <p className="text-slate-600 leading-relaxed">Download your resume in high-quality PDF format. Ready to email or upload to job portals immediately.</p>
+              <p className="text-slate-600 leading-relaxed">Download your resume in high-quality PDF format. Print directly or save your data as JSON for later.</p>
+            </div>
+            <div className="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg">
+                <Eye className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Live Preview</h3>
+              <p className="text-slate-600 leading-relaxed">See changes instantly as you type. Switch between edit, preview, or split view modes on desktop.</p>
+            </div>
+            <div className="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="w-14 h-14 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg">
+                <CheckCircle className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Dark Mode Support</h3>
+              <p className="text-slate-600 leading-relaxed">Work comfortably in light or dark mode. Multiple font options and fully responsive design for all devices.</p>
             </div>
           </div>
         </div>
