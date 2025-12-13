@@ -93,6 +93,15 @@ export const AcademicTemplate = ({ data }: { data: ResumeData }) => {
                     </div>
                 </section>
             )}
+
+            {data.hobbies?.length > 0 && (
+                <section className="mb-6">
+                    <h3 className="text-sm font-bold uppercase mb-3">Hobbies & Interests</h3>
+                    <div className="text-sm">
+                        {data.hobbies.map(h => h.name).join(', ')}
+                    </div>
+                </section>
+            )}
         </div>
     );
 };

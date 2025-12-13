@@ -93,6 +93,17 @@ export const CleanTemplate = ({ data }: { data: ResumeData }) => {
                             </div>
                         </section>
                     )}
+                    
+                    {data.hobbies?.length > 0 && (
+                        <section>
+                            <h3 className="text-xs font-bold uppercase text-slate-400 mb-3 tracking-wider">Hobbies</h3>
+                            <div className="flex flex-col gap-2">
+                                {data.hobbies.map(h => (
+                                    <span key={h.id} className="text-sm text-slate-600">{h.name}</span>
+                                ))}
+                            </div>
+                        </section>
+                    )}
                 </div>
             </div>
         </div>

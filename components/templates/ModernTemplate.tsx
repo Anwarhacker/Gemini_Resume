@@ -123,7 +123,19 @@ export const ModernTemplate = ({ data }: { data: ResumeData }) => {
                         </ul>
                     </section>
                  )}
-             </div>
+              </div>
+
+             {/* Hobbies */}
+             {data.hobbies?.length > 0 && (
+                <section className="mb-6">
+                    <h3 className="text-sm font-bold uppercase tracking-wider border-b border-slate-200 pb-1 mb-3">Hobbies & Interests</h3>
+                    <div className="flex flex-wrap gap-2">
+                        {data.hobbies.map(hobby => (
+                            <span key={hobby.id} className="bg-slate-100 text-slate-800 text-xs px-2 py-1 rounded font-semibold">{hobby.name}</span>
+                        ))}
+                    </div>
+                </section>
+             )}
         </div>
     );
 };

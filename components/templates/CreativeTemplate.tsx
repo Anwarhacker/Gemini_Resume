@@ -47,6 +47,17 @@ export const CreativeTemplate = ({ data }: { data: ResumeData }) => {
                         </div>
                     </div>
                 )}
+
+                {data.hobbies?.length > 0 && (
+                    <div className="mt-2">
+                        <h3 className="text-xs font-bold uppercase text-slate-500 tracking-wider mb-3 border-b border-slate-800 pb-1">Hobbies</h3>
+                        <div className="space-y-1">
+                            {data.hobbies.map(hobby => (
+                                <div key={hobby.id} className="text-sm">{hobby.name}</div>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </aside>
 
             {/* Right Content */}

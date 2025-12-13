@@ -76,6 +76,15 @@ export const SimpleTemplate = ({ data }: { data: ResumeData }) => {
                     </section>
                 )}
             </div>
+
+            {data.hobbies?.length > 0 && (
+                <section className="mb-6">
+                    <h3 className="text-sm font-bold uppercase text-slate-500 mb-3">Hobbies</h3>
+                    <div className="text-sm text-slate-800 leading-relaxed">
+                        {data.hobbies.map(h => h.name).join(', ')}
+                    </div>
+                </section>
+            )}
         </div>
     );
 };

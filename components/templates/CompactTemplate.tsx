@@ -87,6 +87,15 @@ export const CompactTemplate = ({ data }: { data: ResumeData }) => {
                         )}
                     </div>
                 </div>
+
+                {data.hobbies?.length > 0 && (
+                    <section className="mt-5">
+                        <h3 className="text-xs font-black uppercase text-slate-800 mb-2">Hobbies</h3>
+                        <div className="text-[10px] text-slate-600">
+                            {data.hobbies.map(h => h.name).join(' • ')}
+                        </div>
+                    </section>
+                )}
             </div>
         </div>
     );

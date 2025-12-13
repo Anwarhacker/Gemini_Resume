@@ -70,6 +70,17 @@ export const OnyxTemplate = ({ data }: { data: ResumeData }) => {
                             </section>
                         )}
                     </div>
+
+                    {data.hobbies?.length > 0 && (
+                        <section>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4 border-b border-slate-100 pb-2">Hobbies</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {data.hobbies.map(hobby => (
+                                    <span key={hobby.id} className="bg-slate-100 text-slate-700 text-xs px-2 py-1 rounded font-medium">{hobby.name}</span>
+                                ))}
+                            </div>
+                        </section>
+                    )}
                 </div>
             </div>
         </div>

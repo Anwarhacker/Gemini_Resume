@@ -90,6 +90,20 @@ export const UrbanTemplate = ({ data }: { data: ResumeData }) => {
                         </div>
                     </section>
                  )}
+
+                 {data.hobbies?.length > 0 && (
+                    <section>
+                        <h3 className="text-xs font-bold uppercase tracking-wider border-b-2 border-slate-300 pb-1 mb-3">Hobbies</h3>
+                        <div className="flex flex-col gap-2">
+                            {data.hobbies.map(hobby => (
+                                <div key={hobby.id} className="flex items-center gap-2">
+                                    <div className="w-1 h-1 bg-slate-800 rounded-full"></div>
+                                    <span className="text-sm text-slate-700">{hobby.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                 )}
             </aside>
         </div>
     );

@@ -77,6 +77,15 @@ export const SerifTemplate = ({ data }: { data: ResumeData }) => {
                         </section>
                     )}
                 </div>
+
+                {data.hobbies?.length > 0 && (
+                    <section>
+                        <h3 className="text-sm font-bold uppercase text-slate-800 mb-3">Hobbies</h3>
+                        <div className="text-sm text-slate-700 leading-relaxed">
+                            {data.hobbies.map(h => h.name).join(', ')}
+                        </div>
+                    </section>
+                )}
             </div>
         </div>
     );

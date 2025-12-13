@@ -69,6 +69,17 @@ export const CoralTemplate = ({ data }: { data: ResumeData }) => {
                         </section>
                     )}
                 </div>
+
+                {data.hobbies?.length > 0 && (
+                    <section className="max-w-2xl mx-auto w-full mt-8">
+                        <h3 className="text-center text-xs font-bold uppercase tracking-widest text-[#ff7f50] mb-4">Hobbies & Interests</h3>
+                        <div className="flex flex-wrap justify-center gap-2">
+                            {data.hobbies.map(hobby => (
+                                <span key={hobby.id} className="text-xs bg-orange-50 text-orange-800 px-2 py-1 pb-2 rounded">{hobby.name}</span>
+                            ))}
+                        </div>
+                    </section>
+                )}
             </div>
         </div>
     );

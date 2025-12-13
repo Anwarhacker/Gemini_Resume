@@ -15,6 +15,7 @@ import ExperienceForm from '../components/editor/forms/ExperienceForm';
 import ProjectsForm from '../components/editor/forms/ProjectsForm';
 import CertificationsForm from '../components/editor/forms/CertificationsForm';
 import LanguagesForm from '../components/editor/forms/LanguagesForm';
+import HobbiesForm from '../components/editor/forms/HobbiesForm';
 import SocialForm from '../components/editor/forms/SocialForm';
 
 const steps = [
@@ -26,6 +27,7 @@ const steps = [
   { id: 'projects', label: 'Projects', icon: 'rocket_launch' },
   { id: 'certifications', label: 'Certifications', icon: 'verified' },
   { id: 'languages', label: 'Languages', icon: 'translate' },
+  { id: 'hobbies', label: 'Hobbies', icon: 'interests' },
   { id: 'social', label: 'Social Links', icon: 'share' },
   { id: 'review', label: 'Final Review', icon: 'flag' },
 ];
@@ -246,8 +248,9 @@ const Editor: React.FC = () => {
       case 5: return <ProjectsForm data={resumeData} update={updateResume} />;
       case 6: return <CertificationsForm data={resumeData} update={updateResume} />;
       case 7: return <LanguagesForm data={resumeData} update={updateResume} />;
-      case 8: return <SocialForm data={resumeData} update={updateResume} />;
-      case 9: return <FinalReview data={resumeData} />;
+      case 8: return <HobbiesForm data={resumeData} update={updateResume} />;
+      case 9: return <SocialForm data={resumeData} update={updateResume} />;
+      case 10: return <FinalReview data={resumeData} />;
       default: return null;
     }
   };

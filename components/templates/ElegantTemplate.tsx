@@ -64,6 +64,15 @@ export const ElegantTemplate = ({ data }: { data: ResumeData }) => {
                     </div>
                 </section>
             )}
+
+            {data.hobbies?.length > 0 && (
+                <section className="mt-8">
+                    <h3 className="text-center text-sm font-bold uppercase tracking-widest text-slate-400 mb-4">Hobbies</h3>
+                    <div className="text-center text-sm text-slate-700 italic">
+                        {data.hobbies.map(h => h.name).join('  ~  ')}
+                    </div>
+                </section>
+            )}
         </div>
     );
 };

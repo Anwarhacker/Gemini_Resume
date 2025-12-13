@@ -94,6 +94,18 @@ export const ProfessionalTemplate = ({ data }: { data: ResumeData }) => {
                         </div>
                     </section>
                 )}
+
+                {/* Hobbies */}
+                {data.hobbies?.length > 0 && (
+                    <section>
+                        <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Hobbies</h3>
+                        <div className="flex flex-wrap gap-2 text-sm">
+                            {data.hobbies.map(hobby => (
+                                <span key={hobby.id} className="bg-slate-700 px-2 py-1 rounded text-xs">{hobby.name}</span>
+                            ))}
+                        </div>
+                    </section>
+                )}
             </aside>
 
             {/* Right Content */}

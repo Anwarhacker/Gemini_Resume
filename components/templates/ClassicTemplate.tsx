@@ -80,6 +80,15 @@ export const ClassicTemplate = ({ data }: { data: ResumeData }) => {
                     </section>
                 )}
             </div>
+
+            {data.hobbies?.length > 0 && (
+                <section className="mt-6">
+                    <h3 className="text-base font-bold uppercase border-b border-black mb-3">Hobbies</h3>
+                    <div className="text-sm">
+                        {data.hobbies.map(h => h.name).join(', ')}
+                    </div>
+                </section>
+            )}
         </div>
     );
 };

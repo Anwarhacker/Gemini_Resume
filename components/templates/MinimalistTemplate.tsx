@@ -68,6 +68,17 @@ export const MinimalistTemplate = ({ data }: { data: ResumeData }) => {
                          </div>
                     </section>
                 )}
+
+               {data.hobbies?.length > 0 && (
+                    <section className="text-center mt-8">
+                        <h3 className="text-sm font-bold uppercase tracking-widest mb-4 text-slate-400">Hobbies</h3>
+                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                            {data.hobbies.map(hobby => (
+                                <span key={hobby.id} className="text-sm text-slate-600">{hobby.name}</span>
+                            ))}
+                        </div>
+                    </section>
+                )}
             </div>
         </div>
     );

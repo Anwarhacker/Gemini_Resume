@@ -59,6 +59,11 @@ export interface Language {
   proficiency: 'Basic' | 'Conversational' | 'Professional' | 'Native';
 }
 
+export interface Hobby {
+  id: string;
+  name: string;
+}
+
 export interface SocialLink {
   id: string;
   platform: 'LinkedIn' | 'GitHub' | 'Portfolio' | 'Twitter' | 'Behance' | 'Other';
@@ -74,6 +79,7 @@ export interface ResumeData {
   projects: Project[];
   certifications: Certification[];
   languages: Language[];
+  hobbies: Hobby[];
   socialLinks: SocialLink[];
   templateId: string;
   font?: 'sans' | 'serif' | 'mono';
@@ -96,6 +102,7 @@ export const initialResumeState: ResumeData = {
   projects: [],
   certifications: [],
   languages: [],
+  hobbies: [],
   socialLinks: [],
   templateId: 'modern',
   font: 'sans',
@@ -190,6 +197,11 @@ export const demoResumeData: ResumeData = {
   languages: [
     { id: '1', name: 'English', proficiency: 'Native' },
     { id: '2', name: 'Spanish', proficiency: 'Conversational' }
+  ],
+  hobbies: [
+    { id: '1', name: 'Photography' },
+    { id: '2', name: 'Hiking' },
+    { id: '3', name: 'Reading' }
   ],
   socialLinks: [
     { id: '1', platform: 'LinkedIn', url: 'linkedin.com/in/alexmorgan' },

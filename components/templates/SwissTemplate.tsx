@@ -80,6 +80,21 @@ export const SwissTemplate = ({ data }: { data: ResumeData }) => {
                         </div>
                     </section>
                 )}
+
+                {data.hobbies?.length > 0 && (
+                    <section className="grid grid-cols-12 gap-3">
+                        <div className="col-span-3">
+                             <h3 className="text-sm font-black uppercase tracking-widest">Hobbies</h3>
+                        </div>
+                        <div className="col-span-9">
+                            <div className="flex flex-wrap gap-x-4 gap-y-2 font-bold text-sm">
+                                {data.hobbies.map(hobby => (
+                                    <span key={hobby.id} className="border-b-2 border-slate-100 pb-0.5">{hobby.name}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
             </div>
         </div>
     );

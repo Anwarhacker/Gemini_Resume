@@ -113,6 +113,18 @@ export const DesignerTemplate = ({ data }: { data: ResumeData }) => {
                              </div>
                         </section>
                      )}
+
+                     {/* Hobbies */}
+                     {data.hobbies?.length > 0 && (
+                        <section>
+                            <h3 className="text-lg font-black text-slate-800 mb-4">Hobbies</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {data.hobbies.map(hobby => (
+                                    <span key={hobby.id} className="text-xs bg-gradient-to-r from-pink-100 to-purple-100 px-2 py-1 rounded text-slate-700">{hobby.name}</span>
+                                ))}
+                            </div>
+                        </section>
+                     )}
                 </div>
             </div>
         </div>

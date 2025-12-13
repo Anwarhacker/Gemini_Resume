@@ -163,6 +163,18 @@ export const PrestigeTemplate = ({ data }: { data: ResumeData }) => {
                             </div>
                         </section>
                     )}
+
+                    {/* Hobbies */}
+                    {data.hobbies?.length > 0 && (
+                        <section>
+                            <h2 className="text-sm font-bold uppercase tracking-widest text-amber-700 mb-3 pb-2 border-b-2 border-amber-200">Hobbies</h2>
+                            <div className="flex flex-wrap gap-2">
+                                {data.hobbies.map(hobby => (
+                                    <span key={hobby.id} className="text-xs bg-amber-50 text-amber-900 px-2 py-1 rounded border border-amber-200">{hobby.name}</span>
+                                ))}
+                            </div>
+                        </section>
+                    )}
                 </div>
             </div>
         </div>

@@ -199,6 +199,25 @@ export const BoldTemplate = ({ data }: { data: ResumeData }) => {
             </section>
           )}
 
+          {/* HOBBIES */}
+          {data.hobbies?.length > 0 && (
+            <section>
+              <div className="bg-black text-white px-3 py-2 inline-block mb-6">
+                <h3 className="text-lg font-black uppercase tracking-wide" style={{ lineHeight: '1' }}>
+                  Hobbies
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {data.hobbies.map((hobby) => (
+                  <span key={hobby.id} className="text-xs bg-black text-white px-2 py-1">
+                    {hobby.name}
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
+
         </div>
       </div>
     </div>

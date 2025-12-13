@@ -83,6 +83,17 @@ export const ExecutiveTemplate = ({ data }: { data: ResumeData }) => {
                         </section>
                     )}
                 </div>
+
+                {data.hobbies?.length > 0 && (
+                    <section>
+                        <h3 className="text-sm font-bold uppercase tracking-widest text-slate-800 border-b-2 border-slate-800 pb-2 mb-4">Hobbies</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {data.hobbies.map(hobby => (
+                                <span key={hobby.id} className="text-xs bg-slate-100 px-2 py-1 rounded">{hobby.name}</span>
+                            ))}
+                        </div>
+                    </section>
+                )}
             </div>
         </div>
     );

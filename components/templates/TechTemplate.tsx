@@ -182,6 +182,22 @@ export const TechTemplate = ({ data }: { data: ResumeData }) => {
           </section>
         )}
 
+        {/* Hobbies */}
+        {data.hobbies?.length > 0 && (
+          <section className="bg-gradient-to-br from-teal-50 to-blue-50 p-4 rounded">
+            <h3 className="text-xs uppercase tracking-wider text-slate-500 mb-3">
+              Hobbies
+            </h3>
+            <div className="space-y-2">
+              {data.hobbies.map((hobby) => (
+                <div key={hobby.id} className="text-sm text-slate-700 font-medium">
+                  {hobby.name}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
       </aside>
     </div>
   );
