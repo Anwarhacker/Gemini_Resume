@@ -17,6 +17,8 @@ import CertificationsForm from '../components/editor/forms/CertificationsForm';
 import LanguagesForm from '../components/editor/forms/LanguagesForm';
 import HobbiesForm from '../components/editor/forms/HobbiesForm';
 import SocialForm from '../components/editor/forms/SocialForm';
+import SectionSelector from '../components/editor/SectionSelector';
+import { SectionPreferences } from '../types';
 
 const steps = [
   { id: 'personal', label: 'Personal Info', icon: 'check_circle' },
@@ -61,6 +63,18 @@ const fontOptions = [
     { id: 'mono', label: 'Mono', class: 'font-mono' }
 ];
 
+const defaultSectionPreferences: SectionPreferences = {
+  summary: true,
+  education: true,
+  skills: true,
+  experience: true,
+  projects: true,
+  certifications: true,
+  languages: true,
+  hobbies: true,
+  socialLinks: true,
+};
+
 const Editor: React.FC = () => {
   // Use Custom Hooks
   const { 
@@ -81,6 +95,12 @@ const Editor: React.FC = () => {
   const [mobileTab, setMobileTab] = useState<'edit'|'preview'>('edit');
   const [desktopView, setDesktopView] = useState<'both'|'edit'|'preview'>('both');
   const [showToolbar, setShowToolbar] = useState(true);
+  const [sectionPreferences, setSectionPreferences] = useState<SectionPreferences>(() => {
+    const saved = localStorage.getItem('resumeSectionPreferences');
+    return saved ? JSON.parse(saved) : defaultSectionPreferences;
+  });
+  const [showSectionSelector, setShowSectionSelector] = useState(false);
+  const [instructionTip, setInstructionTip] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const previewContainerRef = useRef<HTMLDivElement>(null);
 
@@ -110,6 +130,20 @@ const Editor: React.FC = () => {
         p.set('template', newTemplateId);
         return p;
     });
+  };
+
+  // Filter steps based on section preferences
+  const filteredSteps = steps.filter(step => {
+    // Always include personal and review
+    if (step.id === 'personal' || step.id === 'review') return true;
+    
+    // Filter based on preferences
+    return sectionPreferences[step.id as keyof SectionPreferences] !== false;
+  });
+
+  const handleSavePreferences = (newPreferences: SectionPreferences) => {
+    setSectionPreferences(newPreferences);
+    localStorage.setItem('resumeSectionPreferences', JSON.stringify(newPreferences));
   };
 
   // Robust Scale Logic using ResizeObserver
@@ -239,18 +273,21 @@ const Editor: React.FC = () => {
   };
 
   const renderStep = () => {
-    switch(currentStep) {
-      case 0: return <PersonalForm data={resumeData} update={updateResume} />;
-      case 1: return <SummaryForm data={resumeData} update={updateResume} />;
-      case 2: return <EducationForm data={resumeData} update={updateResume} />;
-      case 3: return <SkillsForm data={resumeData} update={updateResume} />;
-      case 4: return <ExperienceForm data={resumeData} update={updateResume} />;
-      case 5: return <ProjectsForm data={resumeData} update={updateResume} />;
-      case 6: return <CertificationsForm data={resumeData} update={updateResume} />;
-      case 7: return <LanguagesForm data={resumeData} update={updateResume} />;
-      case 8: return <HobbiesForm data={resumeData} update={updateResume} />;
-      case 9: return <SocialForm data={resumeData} update={updateResume} />;
-      case 10: return <FinalReview data={resumeData} />;
+    const currentStepData = filteredSteps[currentStep];
+    if (!currentStepData) return null;
+
+    switch(currentStepData.id) {
+      case 'personal': return <PersonalForm data={resumeData} update={updateResume} />;
+      case 'summary': return <SummaryForm data={resumeData} update={updateResume} />;
+      case 'education': return <EducationForm data={resumeData} update={updateResume} />;
+      case 'skills': return <SkillsForm data={resumeData} update={updateResume} />;
+      case 'experience': return <ExperienceForm data={resumeData} update={updateResume} />;
+      case 'projects': return <ProjectsForm data={resumeData} update={updateResume} />;
+      case 'certifications': return <CertificationsForm data={resumeData} update={updateResume} />;
+      case 'languages': return <LanguagesForm data={resumeData} update={updateResume} />;
+      case 'hobbies': return <HobbiesForm data={resumeData} update={updateResume} />;
+      case 'social': return <SocialForm data={resumeData} update={updateResume} />;
+      case 'review': return <FinalReview data={resumeData} />;
       default: return null;
     }
   };
@@ -354,7 +391,18 @@ const Editor: React.FC = () => {
                     <MaterialIcon name="auto_awesome" className="text-[18px]" /> <span className="hidden sm:inline">Autofill</span>
                  </button>
                  <button 
-                    onClick={clearResumeData}
+                    onClick={() => setShowSectionSelector(true)}
+                    className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 text-sm font-semibold transition-colors active:bg-purple-200"
+                    title="Customize which sections to include"
+                 >
+                    <MaterialIcon name="tune" className="text-[18px]" /> <span className="hidden sm:inline">Customize</span>
+                 </button>
+                 <button 
+                    onClick={() => {
+                        if (confirm('Are you sure you want to clear all data?')) {
+                            clearResumeData();
+                        }
+                    }}
                     className="flex items-center gap-2 px-3 py-1.5 text-red-600 text-sm font-semibold transition-colors bg-red-100 hover:bg-red-200 rounded-lg"
                     title="Clear all fields"
                  >
@@ -400,7 +448,7 @@ const Editor: React.FC = () => {
                         </div>
                    </div>
                    <nav className="flex flex-col gap-1">
-                      {steps.map((step, index) => {
+                      {filteredSteps.map((step, index) => {
                           const active = index === currentStep;
                           return (
                               <button key={step.id} onClick={() => setCurrentStep(index)} className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${active ? 'bg-primary/10 text-primary' : 'text-slate-600 hover:bg-slate-50'}`}>
@@ -465,7 +513,7 @@ const Editor: React.FC = () => {
                             <MaterialIcon name="arrow_back" /> Back
                         </button>
                         <button 
-                            disabled={currentStep === steps.length - 1}
+                            disabled={currentStep === filteredSteps.length - 1}
                             onClick={() => setCurrentStep(p => p + 1)}
                             className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-white font-bold text-sm hover:bg-primary/90 disabled:opacity-50"
                         >
@@ -495,17 +543,69 @@ const Editor: React.FC = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
-                            {showToolbar ? "Hide" : "Open"}
+                        <div className="flex items-center gap-3">
+                            <div className="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+                                {showToolbar ? "Hide" : "Open"}
+                            </div>
                         </div>
                     </button>
+                    
+                    {/* Permanent Instruction Marquee */}
+                    <div className="px-4 pb-3">
+                        <button
+                            onClick={() => setInstructionTip(instructionTip ? null : "visible")}
+                            className="w-full flex items-center gap-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-700 rounded-lg px-3 py-2 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-900/30 dark:hover:to-purple-900/30 transition-all"
+                        >
+                            <MaterialIcon name="lightbulb" className="text-amber-600 dark:text-amber-400 text-[18px] animate-pulse" />
+                            <div className="flex-1 overflow-hidden">
+                                <div className="marquee-container">
+                                    <p className="text-xs text-slate-700 dark:text-slate-200 font-medium whitespace-nowrap inline-block animate-marquee">
+                                        💡 Tip: Use "Customize" to select sections → "Autofill" to load sample data → "Clear" to reset if needed → Click templates to switch design → Export as PDF when done
+                                    </p>
+                                </div>
+                            </div>
+                            <MaterialIcon name={instructionTip ? "expand_less" : "expand_more"} className="text-blue-600 dark:text-blue-400 text-[16px]" />
+                        </button>
+                        
+                        {/* Expandable Instructions */}
+                        {instructionTip && (
+                            <div className="mt-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-4 shadow-lg">
+                                <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                                    <MaterialIcon name="help" className="text-primary" />
+                                    Quick Tips & Instructions
+                                </h4>
+                                <ul className="space-y-2 text-xs text-slate-700 dark:text-slate-300">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-purple-600 dark:text-purple-400 font-bold">1.</span>
+                                        <span><strong>Customize Sections:</strong> Click "Customize" button to select only the sections you need for your resume</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-purple-600 dark:text-purple-400 font-bold">2.</span>
+                                        <span><strong>Autofill Sample Data:</strong> Click "Autofill" to instantly load example content and see how your resume looks</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-purple-600 dark:text-purple-400 font-bold">3.</span>
+                                        <span><strong>Clear All Data:</strong> Use "Clear" button to reset everything and start fresh</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-purple-600 dark:text-purple-400 font-bold">4.</span>
+                                        <span><strong>Switch Templates:</strong> Scroll down and click any template preview to change your resume design</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-purple-600 dark:text-purple-400 font-bold">5.</span>
+                                        <span><strong>Export Options:</strong> Download as PDF or save data as JSON for later use</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
+                    </div>
 
                     {/* Collapsible Content */}
                     {showToolbar && (
                         <div className="px-4 pb-4 flex flex-col gap-4 border-t border-gray-100 dark:border-gray-700 pt-4">
                             {/* Template Selector */}
-                            <div className="flex flex-col gap-2">
-                                <h3 className="text-xs font-bold uppercase text-slate-500 tracking-wider">Select Template</h3>
+                            <div className="flex gap-2">
+                                <h3 className="text-xs font-bold uppercase text-slate-500 pb-4 my-auto tracking-wider">Templates:</h3>
                                 <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
                                     {availableTemplates.map(t => (
                                         <button 
@@ -548,6 +648,13 @@ const Editor: React.FC = () => {
                 </div>
             </aside>
         </div>
+
+        <SectionSelector
+          isOpen={showSectionSelector}
+          onClose={() => setShowSectionSelector(false)}
+          preferences={sectionPreferences}
+          onSave={handleSavePreferences}
+        />
     </div>
   );
 };

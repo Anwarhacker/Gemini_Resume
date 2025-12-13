@@ -64,6 +64,18 @@ export interface Hobby {
   name: string;
 }
 
+export interface SectionPreferences {
+  summary: boolean;
+  education: boolean;
+  skills: boolean;
+  experience: boolean;
+  projects: boolean;
+  certifications: boolean;
+  languages: boolean;
+  hobbies: boolean;
+  socialLinks: boolean;
+}
+
 export interface SocialLink {
   id: string;
   platform: 'LinkedIn' | 'GitHub' | 'Portfolio' | 'Twitter' | 'Behance' | 'Other';
